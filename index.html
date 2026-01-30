@@ -3,97 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>주식 및 코인 상품 추천</title>
+  <title>오늘의 메뉴 추천</title>
   <link href='/style.css' rel='stylesheet'>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>주식 및 코인 상품 추천</h1>
-      <p id="today-date">오늘의 핫한 미국/한국 주식 및 암호화폐 시황을 확인하세요.</p>
+      <h1>오늘의 메뉴 추천</h1>
+      <p id="today-date">맛있는 한 끼를 위한 최고의 선택을 확인하세요.</p>
       <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
     </header>
 
     <main>
-      <section class="stock-section" id="us-stocks">
-        <h2>🇺🇸 미국 주식 추천</h2>
-        <div class="stock-card">
-          <h3>Apple (AAPL)</h3>
-          <p>전 세계적인 기술 기업, 아이폰 및 서비스 부문의 강력한 성장세.</p>
-          <div class="chart-container">
-            <canvas id="chart-aapl"></canvas>
-          </div>
+      <section class="menu-section" id="lunch">
+        <h2>☀️ 점심 메뉴 추천</h2>
+        <div class="menu-card">
+          <h3>김치찌개</h3>
+          <p>한국인의 소울 푸드. 얼큰한 국물과 돼지고기의 환상적인 조화.</p>
         </div>
-        <div class="stock-card">
-          <h3>Tesla (TSLA)</h3>
-          <p>전기차 시장의 선두주자, 자율주행 기술 및 에너지 사업 확장.</p>
-          <div class="chart-container">
-            <canvas id="chart-tsla"></canvas>
-          </div>
+        <div class="menu-card">
+          <h3>돈까스</h3>
+          <p>바삭한 튀김과 달콤한 소스. 남녀노소 누구나 좋아하는 점심 메뉴.</p>
         </div>
-        <div class="stock-card">
-          <h3>NVIDIA (NVDA)</h3>
-          <p>AI 반도체 시장의 독보적인 1위, 데이터센터 수요 폭증.</p>
-          <div class="chart-container">
-            <canvas id="chart-nvda"></canvas>
-          </div>
+        <div class="menu-card">
+          <h3>샐러드 & 샌드위치</h3>
+          <p>가볍고 건강한 한 끼를 원한다면. 신선한 채소와 함께하세요.</p>
         </div>
       </section>
 
-      <section class="stock-section" id="kr-stocks">
-        <h2>🇰🇷 한국 주식 추천</h2>
-        <div class="stock-card">
-          <h3>삼성전자 (005930)</h3>
-          <p>대한민국 대표 기업, 반도체 및 스마트폰 글로벌 경쟁력 보유.</p>
-          <div class="chart-container">
-            <canvas id="chart-samsung"></canvas>
-          </div>
+      <section class="menu-section" id="dinner">
+        <h2>🌙 저녁 메뉴 추천</h2>
+        <div class="menu-card">
+          <h3>삼겹살</h3>
+          <p>하루의 피로를 씻어주는 고소한 삼겹살과 소주 한 잔.</p>
         </div>
-        <div class="stock-card">
-          <h3>SK하이닉스 (000660)</h3>
-          <p>HBM 등 고성능 메모리 반도체 시장에서의 선도적 입지.</p>
-          <div class="chart-container">
-            <canvas id="chart-sk"></canvas>
-          </div>
+        <div class="menu-card">
+          <h3>치킨</h3>
+          <p>바삭한 후라이드, 매콤한 양념. 오늘 밤은 치맥 어떠신가요?</p>
         </div>
-        <div class="stock-card">
-          <h3>현대차 (005380)</h3>
-          <p>글로벌 자동차 판매량 호조 및 전기차 라인업 확대.</p>
-          <div class="chart-container">
-            <canvas id="chart-hyundai"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <section class="stock-section" id="crypto">
-        <h2>🪙 암호화폐 추천</h2>
-        <div class="stock-card">
-          <h3>Bitcoin (BTC)</h3>
-          <p>디지털 금, 블록체인 기술의 시초이자 가장 대표적인 암호화폐.</p>
-          <div class="chart-container">
-            <canvas id="chart-btc"></canvas>
-          </div>
-        </div>
-        <div class="stock-card">
-          <h3>Ethereum (ETH)</h3>
-          <p>스마트 컨트랙트의 선두주자, 다양한 디앱(dApp) 생태계의 기반.</p>
-          <div class="chart-container">
-            <canvas id="chart-eth"></canvas>
-          </div>
-        </div>
-        <div class="stock-card">
-          <h3>Solana (SOL)</h3>
-          <p>고성능 레이어 1 블록체인, 빠른 처리 속도와 낮은 수수료가 특징.</p>
-          <div class="chart-container">
-            <canvas id="chart-sol"></canvas>
-          </div>
+        <div class="menu-card">
+          <h3>초밥 (스시)</h3>
+          <p>신선한 해산물의 풍미를 느낄 수 있는 깔끔하고 고급스러운 저녁.</p>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>※ 본 추천은 예시이며, 투자의 책임은 본인에게 있습니다.</p>
+      <p>※ 알레르기 유발 성분을 확인하시고 섭취하세요.</p>
     </footer>
   </div>
   <script defer type="text/javascript" src="/main.js"></script>
