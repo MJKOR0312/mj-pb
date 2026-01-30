@@ -57,6 +57,13 @@ header h1 {
   color: #e74c3c;
 }
 
+.chart-container {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  margin-top: 15px;
+}
+
 footer {
   text-align: center;
   font-size: 0.9em;
