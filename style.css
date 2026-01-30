@@ -1,10 +1,37 @@
+:root {
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+  --card-bg: #fff;
+  --header-bg: #fff;
+  --header-text: #2c3e50;
+  --h2-color: #2980b9;
+  --h2-border: #3498db;
+  --footer-text: #777;
+  --shadow-color: rgba(0,0,0,0.1);
+  --card-shadow: rgba(0,0,0,0.05);
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --header-bg: #1e1e1e;
+  --header-text: #ecf0f1;
+  --h2-color: #5dade2;
+  --h2-border: #2980b9;
+  --footer-text: #aaa;
+  --shadow-color: rgba(255,255,255,0.1);
+  --card-shadow: rgba(255,255,255,0.05);
+}
+
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -17,14 +44,32 @@ header {
   text-align: center;
   margin-bottom: 40px;
   padding: 20px 0;
-  background-color: #fff;
+  background-color: var(--header-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  position: relative; /* For toggle button positioning */
 }
 
 header h1 {
   margin: 0;
-  color: #2c3e50;
+  color: var(--header-text);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--shadow-color);
 }
 
 .stock-section {
@@ -32,24 +77,24 @@ header h1 {
 }
 
 .stock-section h2 {
-  border-bottom: 2px solid #3498db;
+  border-bottom: 2px solid var(--h2-border);
   padding-bottom: 10px;
   margin-bottom: 20px;
-  color: #2980b9;
+  color: var(--h2-color);
 }
 
 .stock-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  box-shadow: 0 2px 5px var(--card-shadow);
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .stock-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .stock-card h3 {
@@ -67,8 +112,30 @@ header h1 {
 footer {
   text-align: center;
   font-size: 0.9em;
-  color: #777;
+  color: var(--footer-text);
   margin-top: 50px;
   border-top: 1px solid #ddd;
   padding-top: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  
+  header {
+    margin-bottom: 20px;
+    padding: 15px 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .theme-toggle {
+    position: static;
+    display: block;
+    margin: 10px auto 0;
+  }
 }

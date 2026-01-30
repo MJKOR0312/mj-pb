@@ -1,7 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Theme Toggle Logic
+  themeToggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDarkMode = body.classList.contains('dark-mode');
+    themeToggleBtn.textContent = isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
+    updateCharts(isDarkMode);
+  });
+
+  const chartInstances = {};
+
   const createChart = (canvasId, label, dataPoints, color) => {
     const ctx = document.getElementById(canvasId).getContext('2d');
-    new Chart(ctx, {
+    
+    // Store chart instance to update later
+    if (chartInstances[canvasId]) {
+      chartInstances[canvasId].destroy();
+    }
+
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    const gridColor = isDarkMode ? '#444' : '#f0f0f0';
+    const textColor = isDarkMode ? '#e0e0e0' : '#666';
+
+    chartInstances[canvasId] = new Chart(ctx, {
       type: 'line',
       data: {
         labels: ['3달 전', '2달 전', '1달 전', '현재'],
@@ -27,16 +50,34 @@ document.addEventListener('DOMContentLoaded', () => {
           y: {
             beginAtZero: false,
             grid: {
-              color: '#f0f0f0'
+              color: gridColor
+            },
+            ticks: {
+              color: textColor
             }
           },
           x: {
             grid: {
               display: false
+            },
+            ticks: {
+              color: textColor
             }
           }
         }
       }
+    });
+  };
+
+  const updateCharts = (isDarkMode) => {
+    const gridColor = isDarkMode ? '#444' : '#f0f0f0';
+    const textColor = isDarkMode ? '#e0e0e0' : '#666';
+
+    Object.values(chartInstances).forEach(chart => {
+      chart.options.scales.y.grid.color = gridColor;
+      chart.options.scales.y.ticks.color = textColor;
+      chart.options.scales.x.ticks.color = textColor;
+      chart.update();
     });
   };
 
