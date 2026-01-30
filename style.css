@@ -102,6 +102,26 @@ header h1 {
   color: #e74c3c;
 }
 
+.stats-container {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+.stats-list {
+  padding-left: 20px;
+}
+
+.stats-list li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.stats-list li strong {
+  color: #e67e22;
+}
+
 footer {
   text-align: center;
   font-size: 0.9em;
