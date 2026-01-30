@@ -53,4 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Crypto
   createChart('chart-btc', 'Bitcoin', [35000, 38000, 42000, 45000], '#f1c40f');
+  createChart('chart-eth', 'Ethereum', [2200, 2500, 2300, 2700], '#8e44ad');
+  createChart('chart-sol', 'Solana', [80, 110, 100, 140], '#1abc9c');
 });
