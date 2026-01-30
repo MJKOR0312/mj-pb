@@ -91,10 +91,23 @@ header h1 {
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: all 0.2s;
 }
 
 .theme-toggle:hover {
   background-color: var(--shadow-color);
+}
+
+/* Specific style for refresh button to make it stand out slightly */
+#refresh-btn {
+  border-color: var(--h2-color);
+  color: var(--h2-color);
+  font-weight: bold;
+}
+
+#refresh-btn:hover {
+  background-color: var(--h2-color);
+  color: #fff;
 }
 
 .menu-section {
@@ -113,7 +126,7 @@ header h1 {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 5px var(--card-shadow);
-  transition: transform 0.2s, background-color 0.3s;
+  transition: opacity 0.2s, transform 0.2s, background-color 0.3s;
 }
 
 .menu-card:hover {
@@ -154,7 +167,7 @@ footer {
     flex-direction: column;
   }
   
-  #country-selector, .theme-toggle {
+  #country-selector, .theme-toggle, #refresh-btn {
     width: 100%;
   }
 }
