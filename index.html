@@ -1,14 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>주식 상품 추천</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <div class="container">
+    <header>
+      <h1>주식 상품 추천</h1>
+      <p>오늘의 핫한 미국 및 한국 주식 종목을 확인하세요.</p>
+    </header>
+
+    <main>
+      <section class="stock-section" id="us-stocks">
+        <h2>🇺🇸 미국 주식 추천</h2>
+        <div class="stock-card">
+          <h3>Apple (AAPL)</h3>
+          <p>전 세계적인 기술 기업, 아이폰 및 서비스 부문의 강력한 성장세.</p>
+        </div>
+        <div class="stock-card">
+          <h3>Tesla (TSLA)</h3>
+          <p>전기차 시장의 선두주자, 자율주행 기술 및 에너지 사업 확장.</p>
+        </div>
+        <div class="stock-card">
+          <h3>NVIDIA (NVDA)</h3>
+          <p>AI 반도체 시장의 독보적인 1위, 데이터센터 수요 폭증.</p>
+        </div>
+      </section>
+
+      <section class="stock-section" id="kr-stocks">
+        <h2>🇰🇷 한국 주식 추천</h2>
+        <div class="stock-card">
+          <h3>삼성전자 (005930)</h3>
+          <p>대한민국 대표 기업, 반도체 및 스마트폰 글로벌 경쟁력 보유.</p>
+        </div>
+        <div class="stock-card">
+          <h3>SK하이닉스 (000660)</h3>
+          <p>HBM 등 고성능 메모리 반도체 시장에서의 선도적 입지.</p>
+        </div>
+        <div class="stock-card">
+          <h3>현대차 (005380)</h3>
+          <p>글로벌 자동차 판매량 호조 및 전기차 라인업 확대.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>※ 본 추천은 예시이며, 투자의 책임은 본인에게 있습니다.</p>
+    </footer>
+  </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
