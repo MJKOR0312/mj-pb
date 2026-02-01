@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | MenuGenie</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .error-container {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      max-width: 500px;
+    }
+    h1 {
+      color: var(--h2-color);
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    p {
+      color: var(--text-color);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    .home-btn {
+      display: inline-block;
+      background-color: var(--h2-color);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .home-btn:hover {
+      background-color: var(--h2-border);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <h1>404</h1>
+    <h2>Oops! Page Not Found</h2>
+    <p>요청하신 페이지를 찾을 수 없습니다.<br>맛있는 메뉴를 추천받으러 홈으로 돌아가볼까요?</p>
+    <a href="index.html" class="home-btn">🏠 홈으로 가기</a>
+  </div>
+</body>
+</html>

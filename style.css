@@ -133,6 +133,7 @@ header h1 {
   box-shadow: 0 2px 5px var(--card-shadow);
   transition: opacity 0.2s, transform 0.2s, background-color 0.3s;
   text-align: center; /* Center content in card */
+  min-height: 400px; /* Prevent layout shift before content loads */
 }
 
 .menu-card:hover {

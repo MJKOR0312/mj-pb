@@ -421,8 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="pairing-section">
         <p class="pairing-text">${labels.pair}: <strong>${pairing}</strong></p>
         <div class="action-buttons">
-          <a href="https://www.google.com/maps/search/${encodedName}" target="_blank" class="action-btn map-btn">📍 식당 찾기</a>
-          <a href="https://www.youtube.com/results?search_query=${encodedName}+먹방" target="_blank" class="action-btn youtube-btn">📺 영상 보기</a>
+          <a href="https://www.google.com/maps/search/${encodedName}" target="_blank" rel="noopener noreferrer" class="action-btn map-btn">📍 식당 찾기</a>
+          <a href="https://www.youtube.com/results?search_query=${encodedName}+먹방" target="_blank" rel="noopener noreferrer" class="action-btn youtube-btn">📺 영상 보기</a>
           <button class="action-btn share-btn" data-menu="${menuName}">📤 공유하기</button>
         </div>
       </div>
