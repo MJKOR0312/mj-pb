@@ -243,6 +243,12 @@ body.dark-mode .nutrition-info span {
   background-color: #FF0000; /* YouTube Red */
 }
 
+.share-btn {
+  background-color: #2ecc71; /* Emerald Green */
+  border: none;
+  cursor: pointer;
+}
+
 footer {
   text-align: center;
   font-size: 0.9em;

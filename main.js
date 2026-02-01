@@ -415,16 +415,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper to generate HTML for pairing and action buttons
   const getPairingHtml = (menuName, pairing, labels) => {
     const encodedName = encodeURIComponent(menuName);
+    // Escaping single quotes for the onclick attribute
+    const safeMenuName = menuName.replace(/'/g, "\\'");
     return `
       <div class="pairing-section">
         <p class="pairing-text">${labels.pair}: <strong>${pairing}</strong></p>
         <div class="action-buttons">
           <a href="https://www.google.com/maps/search/${encodedName}" target="_blank" class="action-btn map-btn">📍 식당 찾기</a>
           <a href="https://www.youtube.com/results?search_query=${encodedName}+먹방" target="_blank" class="action-btn youtube-btn">📺 영상 보기</a>
+          <button class="action-btn share-btn" data-menu="${menuName}">📤 공유하기</button>
         </div>
       </div>
     `;
   };
+
+  // Global Share Handler using Event Delegation
+  document.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('share-btn')) {
+      const menuName = e.target.getAttribute('data-menu');
+      const shareData = {
+        title: '오늘의 메뉴 추천',
+        text: `오늘 ${menuName} 어때요? 😋\n추천 메뉴 보러가기:`,
+        url: window.location.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          // Fallback for PC
+          await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+          alert('메뉴가 클립보드에 복사되었습니다! 친구에게 붙여넣기 하세요. 📋');
+        }
+      } catch (err) {
+        console.error('Share failed:', err);
+      }
+    }
+  });
 
   // Function to Update Content
   const updateContent = (countryCode) => {
