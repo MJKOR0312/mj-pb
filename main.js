@@ -109,11 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
-    // Use LoremFlickr for reliable food images
-    // Using generic 'food' keywords ensures we always get a valid image
-    // The random parameter prevents browser caching
-    const randomId = Math.random();
-    const imageUrl = `https://loremflickr.com/600/400/food,meal,dish?random=${randomId}`;
+    // Use Bing Image Search Thumbnail for high relevance
+    // This fetches a search result thumbnail matching the menu name
+    const encodedName = encodeURIComponent(name);
+    // w=400, h=400 forces a square thumbnail, c=7 extracts the main subject
+    const imageUrl = `https://tse2.mm.bing.net/th?q=${encodedName} food&w=400&h=400&c=7&rs=1&p=0`;
     return { name, desc, imageUrl };
   };
 
