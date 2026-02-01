@@ -17,19 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
     kr: {
       name: "South Korea",
       lang: "ko",
-      headers: { lunch: "☀️ 점심 메뉴 추천", dinner: "🌙 저녁 메뉴 추천", info: "📊 결정 피로도 & 문화", btn: "🔄 다른 메뉴 추천" },
+      headers: { lunch: "☀️ 점심 메뉴 추천", dinner: "🌙 저녁 메뉴 추천", info: "📊 결정 피로도 & 문화", btn: "🔄 Click to Refresh" },
       stats: "'결정 피로의 본고장'. 압도적인 배달 앱(배민, 쿠팡이츠) 인프라와 24시간 외식 문화가 결합해 매 끼니가 선택의 연속임."
     },
     us: {
       name: "USA",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "'Paradox of Choice'. High stress due to endless customization options on apps like DoorDash."
     },
     uk: {
       name: "UK",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "Ranking #1 for most stressful daily decision: 'What to eat?'. High mobile dependency."
     },
     cn: {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     au: {
       name: "Australia",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "66% of households feel fatigue daily. Struggle between health and taste with high mobile usage."
     },
     ph: {
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ca: {
       name: "Canada",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "Similar delivery culture to USA. Cold weather leads to longer app browsing times instead of going out."
     },
     th: {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sg: {
       name: "Singapore",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "Too many hawker centers in a small area. 'Foodie' culture leads to time spent finding the best value/taste."
     },
     ae: {
