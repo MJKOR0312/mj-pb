@@ -356,6 +356,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Get Random Item from Array (Generic)
   const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
+  // Helper: Classify Menu as Lunch (Light) or Dinner (Heavy)
+  const classifyMealType = (menuName, countryCode) => {
+    const name = menuName.toLowerCase();
+    
+    // Universal Lunch Keywords (Light, Quick, Single Dish)
+    const lunchKeywords = [
+      'sandwich', 'toast', 'burger', 'hot dog', 'salad', 'noodle', 'ramen', 'udon', 'soba', 'pasta', 
+      'rice bowl', 'bibimbap', 'gimbap', 'donburi', 'curry', 'soup', 'stew', 'jjigae', 'gukbap', 
+      'pho', 'pad thai', 'taco', 'burrito', 'wrap', 'dim sum', 'dumpling', 'fried rice', 'congee',
+      'lunch', 'bento', 'set', 'meal'
+    ];
+
+    // Universal Dinner Keywords (Heavy, Sharing, Premium, Alcohol-pairing)
+    const dinnerKeywords = [
+      'steak', 'roast', 'bbq', 'ribs', 'grill', 'platter', 'sashimi', 'sushi', 'hot pot', 'jeongol',
+      'bossam', 'jokbal', 'samgyeopsal', 'galbi', 'chicken', 'pizza', 'course', 'duck', 'lamb', 
+      'crab', 'lobster', 'seafood', 'stew', 'gamjatang', 'mara', 'paella', 'fajitas', 'fondue'
+    ];
+
+    // Country Specific Overrides
+    if (countryCode === 'kr') {
+      if (name.includes('백반') || name.includes('도시락') || name.includes('분식')) return 'lunch';
+      if (name.includes('회') || name.includes('곱창') || name.includes('전골') || name.includes('안주')) return 'dinner';
+    }
+
+    // Scoring System
+    let lunchScore = 0;
+    let dinnerScore = 0;
+
+    lunchKeywords.forEach(kw => { if (name.includes(kw)) lunchScore++; });
+    dinnerKeywords.forEach(kw => { if (name.includes(kw)) dinnerScore++; });
+
+    // Tie-breaking or ambiguous cases default to 'both' (which means eligible for either, but we prefer distinct)
+    if (lunchScore > dinnerScore) return 'lunch';
+    if (dinnerScore > lunchScore) return 'dinner';
+    
+    // Specific logic for common items that fit both but lean one way based on context
+    if (name.includes('pizza') || name.includes('pasta')) return 'lunch'; // Leans lunch often but ok for dinner
+    if (name.includes('stew') || name.includes('soup')) return 'lunch';
+    
+    return 'both'; 
+  };
+
   // Helper: Get distinct random items for lunch and dinner from the large list
   const getRandomMenuPair = (countryCode) => {
     const rawList = window.MENU_DATA[countryCode] || [];
@@ -368,18 +411,35 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }
 
-    // Pick two distinct random indices
-    let idx1 = Math.floor(Math.random() * rawList.length);
-    let idx2 = Math.floor(Math.random() * rawList.length);
-    
-    // Ensure they are different if possible
-    while (idx1 === idx2 && rawList.length > 1) {
-      idx2 = Math.floor(Math.random() * rawList.length);
+    // Filter Lists
+    const lunchOptions = rawList.filter(item => {
+      const type = classifyMealType(item.split('|')[0], countryCode);
+      return type === 'lunch' || type === 'both';
+    });
+
+    const dinnerOptions = rawList.filter(item => {
+      const type = classifyMealType(item.split('|')[0], countryCode);
+      return type === 'dinner' || type === 'both';
+    });
+
+    // Fallback to full list if filtered list is empty
+    const finalLunchList = lunchOptions.length > 0 ? lunchOptions : rawList;
+    const finalDinnerList = dinnerOptions.length > 0 ? dinnerOptions : rawList;
+
+    // Pick Random
+    const lunchItemStr = getRandomItem(finalLunchList);
+    let dinnerItemStr = getRandomItem(finalDinnerList);
+
+    // Try to ensure they are different
+    let attempts = 0;
+    while (lunchItemStr === dinnerItemStr && attempts < 10) {
+      dinnerItemStr = getRandomItem(finalDinnerList);
+      attempts++;
     }
 
     return {
-      lunch: parseMenu(rawList[idx1]),
-      dinner: parseMenu(rawList[idx2])
+      lunch: parseMenu(lunchItemStr),
+      dinner: parseMenu(dinnerItemStr)
     };
   };
 
