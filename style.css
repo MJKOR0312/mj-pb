@@ -103,20 +103,19 @@ header h1 {
   background-color: var(--h2-color);
   color: #fff;
   font-weight: bold;
-  font-size: 1.2rem;
-  padding: 15px 30px;
+  font-size: 1rem;
+  padding: 10px 20px;
   border: none;
-  border-radius: 50px; /* Rounded pill shape for more prominence */
-  box-shadow: 0 4px 15px var(--shadow-color);
+  border-radius: 50px;
+  box-shadow: 0 4px 10px var(--shadow-color);
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-  margin-top: 10px;
 }
 
 #refresh-btn:hover {
   background-color: var(--h2-border);
   transform: scale(1.05);
-  box-shadow: 0 6px 20px var(--shadow-color);
+  box-shadow: 0 6px 15px var(--shadow-color);
 }
 
 #refresh-btn:active {
@@ -140,6 +139,7 @@ header h1 {
   padding: 20px;
   box-shadow: 0 2px 5px var(--card-shadow);
   transition: opacity 0.2s, transform 0.2s, background-color 0.3s;
+  text-align: center; /* Center content in card */
 }
 
 .menu-card:hover {
@@ -148,14 +148,15 @@ header h1 {
 }
 
 .menu-image {
-  width: 100%;
+  width: 50%; /* Reduced size by 2 times from 100% */
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin: 0 auto 15px auto; /* Centered with auto margin */
+  display: block;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
-  background-color: #eee; /* Placeholder background while loading */
+  background-color: #eee;
 }
 
 .menu-card:hover .menu-image {
