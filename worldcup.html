@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food World Cup | MenuGenie</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    /* World Cup Specific Styles */
+    .wc-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wc-header {
+      margin-bottom: 20px;
+    }
+
+    .round-badge {
+      background: var(--h2-color);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .match-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .versus-circle {
+      width: 50px;
+      height: 50px;
+      background: #e74c3c;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: -10px auto;
+      z-index: 10;
+      border: 4px solid var(--bg-color);
+    }
+
+    .choice-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px var(--card-shadow);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      flex: 1;
+      position: relative;
+    }
+
+    .choice-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px var(--shadow-color);
+      border: 2px solid var(--h2-color);
+    }
+
+    .choice-img-container {
+      width: 100%;
+      height: 200px;
+      background: #eee;
+    }
+
+    .choice-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .choice-name {
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    /* Winner Screen */
+    .winner-screen {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+
+    .crown-icon {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    @media (min-width: 600px) {
+      .match-container {
+        flex-direction: row;
+        align-items: stretch;
+      }
+      .versus-circle {
+        align-self: center;
+        margin: 0 -25px;
+      }
+      .choice-img-container {
+        height: 250px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">🍽️ MenuGenie</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="wc-container">
+    
+    <!-- Intro Screen -->
+    <div id="intro-screen">
+      <h1>🏆 Food World Cup</h1>
+      <p>Can't decide? Let your instincts choose based on images!</p>
+      
+      <div style="margin: 30px 0;">
+        <label for="country-select">Select Cuisine:</label>
+        <select id="country-select" style="padding: 8px; margin-left: 10px; border-radius: 5px;">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+
+      <button id="start-btn" class="action-btn" style="font-size: 1.5rem; padding: 15px 40px; background-color: #2ecc71;">Start Game (16 Round)</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" style="display: none;">
+      <div class="wc-header">
+        <span id="round-indicator" class="round-badge">Round of 16</span>
+        <div class="progress-bar" style="height: 4px; background: #ddd; margin-top: 10px; border-radius: 2px;">
+          <div id="progress-fill" style="height: 100%; width: 0%; background: var(--h2-color); transition: width 0.3s;"></div>
+        </div>
+      </div>
+
+      <div class="match-container">
+        <!-- Left Choice -->
+        <div class="choice-card" id="card-left">
+          <div class="choice-img-container">
+            <img id="img-left" class="choice-img" src="" alt="Choice A">
+          </div>
+          <div class="choice-name" id="name-left">Option A</div>
+        </div>
+
+        <div class="versus-circle">VS</div>
+
+        <!-- Right Choice -->
+        <div class="choice-card" id="card-right">
+          <div class="choice-img-container">
+            <img id="img-right" class="choice-img" src="" alt="Choice B">
+          </div>
+          <div class="choice-name" id="name-right">Option B</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Winner Screen -->
+    <div id="winner-screen" class="winner-screen">
+      <span class="crown-icon">👑</span>
+      <h1>Your Ultimate Choice!</h1>
+      
+      <div class="choice-card" style="max-width: 400px; margin: 30px auto; pointer-events: none;">
+        <div class="choice-img-container">
+          <img id="winner-img" class="choice-img" src="" alt="Winner">
+        </div>
+        <div class="choice-name" id="winner-name">Winner Name</div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="restart-btn" class="action-btn" style="background-color: #3498db;">🔄 Play Again</button>
+        <a href="index.html" class="action-btn" style="background-color: #95a5a6;">🏠 Go Home</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="menu-data.js"></script>
+  <script src="worldcup.js"></script>
+</body>
+</html>
