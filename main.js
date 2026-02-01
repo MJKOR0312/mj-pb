@@ -109,10 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
-    // Generate an image URL based on the menu name using Unsplash Source
-    // This searches for a photo matching the menu name and 'food'
-    const encodedName = encodeURIComponent(name);
-    const imageUrl = `https://source.unsplash.com/600x400/?${encodedName},food`;
+    // Use LoremFlickr for reliable food images
+    // Using generic 'food' keywords ensures we always get a valid image
+    // The random parameter prevents browser caching
+    const randomId = Math.random();
+    const imageUrl = `https://loremflickr.com/600/400/food,meal,dish?random=${randomId}`;
     return { name, desc, imageUrl };
   };
 
