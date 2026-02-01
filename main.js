@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const refreshBtn = document.getElementById('refresh-btn');
   const refreshBtnBottom = document.getElementById('refresh-btn-bottom');
+  const worldCupBtn = document.getElementById('world-cup-btn');
   const body = document.body;
   const dateElement = document.getElementById('today-date');
   const countrySelector = document.getElementById('country-selector');
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     kr: {
       name: "South Korea",
       lang: "ko",
-      headers: { lunch: "☀️ 점심 메뉴 추천", dinner: "🌙 저녁 메뉴 추천", info: "📊 결정 피로도 & 문화", btn: "🔄 클릭해서 메뉴변경" },
+      headers: { lunch: "☀️ 점심 메뉴 추천", dinner: "🌙 저녁 메뉴 추천", info: "📊 결정 피로도 & 문화", btn: "🔄 클릭해서 메뉴변경", worldCup: "🏆 음식 월드컵" },
       stats: "'결정 피로의 본고장'. 압도적인 배달 앱(배민, 쿠팡이츠) 인프라와 24시간 외식 문화가 결합해 매 끼니가 선택의 연속임.",
       labels: { kcal: "🔥 칼로리", carbs: "🍚 탄", protein: "🥩 단", fat: "🧈 지", pair: "💡 꿀조합" },
       article: {
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     us: {
       name: "USA",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu", worldCup: "🏆 Food World Cup" },
       stats: "'Paradox of Choice'. High stress due to endless customization options on apps like DoorDash.",
       labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Best with" },
       article: {
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     uk: {
       name: "UK",
       lang: "en",
-      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
+      headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu", worldCup: "🏆 Food World Cup" },
       stats: "Ranking #1 for most stressful daily decision: 'What to eat?'. High mobile dependency.",
       labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Pair with" },
       article: {
@@ -122,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cn: {
       name: "China",
       lang: "zh-CN",
-      headers: { lunch: "☀️ 午餐推荐", dinner: "🌙 晚餐推荐", info: "📊 决策疲劳与文化", btn: "🔄 换个菜单" },
+      headers: { lunch: "☀️ 午餐推荐", dinner: "🌙 晚餐推荐", info: "📊 决策疲劳与文化", btn: "🔄 换个菜单", worldCup: "🏆 美食世界杯" },
       stats: "'超级应用的统治'. 虽然美团(Meituan)解决了所有饮食问题，但选择过多导致认知过载.",
       labels: { kcal: "🔥 卡路里", carbs: "🍚 碳水", protein: "🥩 蛋白", fat: "🧈 脂肪", pair: "💡 搭配" },
       article: {
@@ -190,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tw: {
       name: "Taiwan",
       lang: "zh-TW",
-      headers: { lunch: "☀️ 午餐推薦", dinner: "🌙 晚餐推薦", info: "📊 決策疲勞與文化", btn: "🔄 換個菜單" },
+      headers: { lunch: "☀️ 午餐推薦", dinner: "🌙 晚餐推薦", info: "📊 決策疲勞과 문화", btn: "🔄 換個菜單", worldCup: "🏆 美食世界盃" },
       stats: "High reliance on convenience stores and dining out. Overwhelmed by mobile search for dense restaurant options.",
       labels: { kcal: "🔥 卡路里", carbs: "🍚 碳水", protein: "🥩 蛋白", fat: "🧈 脂肪", pair: "💡 搭配" },
       article: {
@@ -258,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     th: {
       name: "Thailand",
       lang: "th",
-      headers: { lunch: "☀️ แนะนำมื้อกลางวัน", dinner: "🌙 แนะนำมื้อเย็น", info: "📊 ความเหนื่อยล้าในการตัดสินใจ", btn: "🔄 เมนูอื่น" },
+      headers: { lunch: "☀️ แนะนำมื้อกลางวัน", dinner: "🌙 แนะนำมื้อเย็น", info: "📊 ความเหนื่อยล้าในการตัดสินใจ", btn: "🔄 เมนูอื่น", worldCup: "🏆 ฟู้ด 월ด์คัพ" },
       stats: "Grab delivery culture. Variety of street food moving to digital platforms creates too many choices.",
       labels: { kcal: "🔥 แคลอรี่", carbs: "🍚 คาร์บ", protein: "🥩 โปรตีน", fat: "🧈 ไขมัน", pair: "💡 กินกับ" },
       article: {
@@ -309,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
     de: {
       name: "Germany",
       lang: "de",
-      headers: { lunch: "☀️ Mittagessen Empfehlung", dinner: "🌙 Abendessen Empfehlung", info: "📊 Entscheidungsmüdigkeit", btn: "🔄 Anderes Menü" },
+      headers: { lunch: "☀️ Mittagessen Empfehlung", dinner: "🌙 Abendessen Empfehlung", info: "📊 Entscheidungsmüdigkeit", btn: "🔄 Anderes Menü", worldCup: "🏆 Food World Cup" },
       stats: "Surging delivery trend. Efficiency valued, but increasing variety causes fatigue among the youth.",
       labels: { kcal: "🔥 Kalorien", carbs: "🍚 Kohlen", protein: "🥩 Protein", fat: "🧈 Fett", pair: "💡 Dazu passt" },
       article: {
@@ -595,6 +596,9 @@ document.addEventListener('DOMContentLoaded', () => {
     infoHeader.textContent = config.headers.info;
     refreshBtn.textContent = config.headers.btn;
     if (refreshBtnBottom) refreshBtnBottom.textContent = config.headers.btn;
+    if (worldCupBtn) {
+      worldCupBtn.textContent = config.headers.worldCup || (config.lang === 'ko' ? "🏆 음식 월드컵" : "🏆 Food World Cup");
+    }
 
     // Get Random Menus from the Massive Data File
     const { lunch, dinner } = getRandomMenuPair(countryCode);
