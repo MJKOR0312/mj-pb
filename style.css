@@ -83,21 +83,6 @@ header h1 {
   color: var(--text-color);
 }
 
-.theme-toggle {
-  background: none;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-}
-
-.theme-toggle:hover {
-  background-color: var(--shadow-color);
-}
-
 /* Specific style for refresh button to make it stand out significantly */
 #refresh-btn, #refresh-btn-bottom {
   background-color: var(--h2-color);
@@ -272,7 +257,7 @@ footer {
 .navbar {
   background-color: var(--header-bg);
   box-shadow: 0 2px 4px var(--shadow-color);
-  padding: 15px 0;
+  padding: 10px 0;
   margin-bottom: 20px;
 }
 
@@ -283,19 +268,21 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  gap: 10px;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-decoration: none;
   color: var(--header-text);
+  white-space: nowrap;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   margin: 0;
   padding: 0;
 }
@@ -303,12 +290,28 @@ footer {
 .nav-links a {
   text-decoration: none;
   color: var(--text-color);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
 
 .nav-links a:hover {
   color: var(--h2-color);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  background-color: var(--shadow-color);
 }
 
 /* Info Article (SEO Content) */
