@@ -6,6 +6,7 @@
   <title>Food World Cup | MenuGenie</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
     /* World Cup Specific Styles */
     .wc-container {
@@ -148,9 +149,15 @@
         <select id="country-select" style="padding: 8px; margin-left: 10px; border-radius: 5px;">
           <!-- Populated by JS -->
         </select>
+        
+        <label for="round-select" style="margin-left: 20px;">Rounds:</label>
+        <select id="round-select" style="padding: 8px; margin-left: 10px; border-radius: 5px;">
+          <option value="16">16 Round</option>
+          <option value="32">32 Round</option>
+        </select>
       </div>
 
-      <button id="start-btn" class="action-btn" style="font-size: 1.5rem; padding: 15px 40px; background-color: #2ecc71;">Start Game (16 Round)</button>
+      <button id="start-btn" class="action-btn" style="font-size: 1.5rem; padding: 15px 40px; background-color: #2ecc71;">Start Game</button>
     </div>
 
     <!-- Game Screen -->
@@ -188,7 +195,7 @@
       <span class="crown-icon">👑</span>
       <h1>Your Ultimate Choice!</h1>
       
-      <div class="choice-card" style="max-width: 400px; margin: 30px auto; pointer-events: none;">
+      <div class="choice-card" id="winner-card" style="max-width: 400px; margin: 30px auto; pointer-events: none;">
         <div class="choice-img-container">
           <img id="winner-img" class="choice-img" src="" alt="Winner">
         </div>
@@ -196,6 +203,7 @@
       </div>
 
       <div class="action-buttons">
+        <button id="share-winner-btn" class="action-btn" style="background-color: #f1c40f; color: #333;">📤 Share Winner</button>
         <button id="restart-btn" class="action-btn" style="background-color: #3498db;">🔄 Play Again</button>
         <a href="index.html" class="action-btn" style="background-color: #95a5a6;">🏠 Go Home</a>
       </div>
