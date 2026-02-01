@@ -109,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
-    // Generate an AI image URL based on the menu name using Pollinations.ai
-    // Adding 'food' and 'delicious' to the prompt helps ensure relevant results
+    // Generate an image URL based on the menu name using Unsplash Source
+    // This searches for a photo matching the menu name and 'food'
     const encodedName = encodeURIComponent(name);
-    const imageUrl = `https://image.pollinations.ai/prompt/delicious%20${encodedName}%20food?width=600&height=400&nologo=true`;
+    const imageUrl = `https://source.unsplash.com/600x400/?${encodedName},food`;
     return { name, desc, imageUrl };
   };
 
