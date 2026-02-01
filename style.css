@@ -103,19 +103,27 @@ header h1 {
   background-color: var(--h2-color);
   color: #fff;
   font-weight: bold;
-  font-size: 1rem;
-  padding: 10px 20px;
+  font-size: 1.2rem; /* Increased font size */
+  padding: 15px 30px; /* Increased padding */
   border: none;
   border-radius: 50px;
-  box-shadow: 0 4px 10px var(--shadow-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  animation: pulse 2s infinite; /* Added pulse animation */
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 15px var(--shadow-color); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 20px var(--h2-border); }
+  100% { transform: scale(1); box-shadow: 0 4px 15px var(--shadow-color); }
 }
 
 #refresh-btn:hover {
   background-color: var(--h2-border);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px var(--shadow-color);
+  transform: scale(1.1);
+  animation: none; /* Stop pulsing on hover */
+  box-shadow: 0 6px 20px var(--shadow-color);
 }
 
 #refresh-btn:active {
