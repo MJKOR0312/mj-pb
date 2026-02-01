@@ -109,7 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
-    return { name, desc };
+    // Generate a placeholder image URL based on the menu name
+    const encodedName = encodeURIComponent(name);
+    const imageUrl = `https://placehold.co/600x400?text=${encodedName}`;
+    return { name, desc, imageUrl };
   };
 
   // Helper: Get Random Item from Array (Generic)
@@ -122,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fallback if data is missing
     if (rawList.length === 0) {
       return {
-        lunch: { name: "N/A", desc: "No menu data available." },
-        dinner: { name: "N/A", desc: "No menu data available." }
+        lunch: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data" },
+        dinner: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data" }
       };
     }
 
@@ -176,8 +179,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const { lunch, dinner } = getRandomMenuPair(countryCode);
 
     // Update Content
-    lunchCard.innerHTML = `<h3>${lunch.name}</h3><p>${lunch.desc}</p>`;
-    dinnerCard.innerHTML = `<h3>${dinner.name}</h3><p>${dinner.desc}</p>`;
+    lunchCard.innerHTML = `
+      <img src="${lunch.imageUrl}" alt="${lunch.name}" class="menu-image">
+      <h3>${lunch.name}</h3>
+      <p>${lunch.desc}</p>
+    `;
+    dinnerCard.innerHTML = `
+      <img src="${dinner.imageUrl}" alt="${dinner.name}" class="menu-image">
+      <h3>${dinner.name}</h3>
+      <p>${dinner.desc}</p>
+    `;
     statsCard.innerHTML = `<p>${config.stats}</p>`;
 
     // Update Language Attribute
@@ -203,8 +214,16 @@ document.addEventListener('DOMContentLoaded', () => {
     dinnerCard.style.opacity = '0';
     
     setTimeout(() => {
-        lunchCard.innerHTML = `<h3>${lunch.name}</h3><p>${lunch.desc}</p>`;
-        dinnerCard.innerHTML = `<h3>${dinner.name}</h3><p>${dinner.desc}</p>`;
+        lunchCard.innerHTML = `
+          <img src="${lunch.imageUrl}" alt="${lunch.name}" class="menu-image">
+          <h3>${lunch.name}</h3>
+          <p>${lunch.desc}</p>
+        `;
+        dinnerCard.innerHTML = `
+          <img src="${dinner.imageUrl}" alt="${dinner.name}" class="menu-image">
+          <h3>${dinner.name}</h3>
+          <p>${dinner.desc}</p>
+        `;
         lunchCard.style.opacity = '1';
         dinnerCard.style.opacity = '1';
     }, 200);
