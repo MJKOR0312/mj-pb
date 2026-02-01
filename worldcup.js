@@ -88,9 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let totalMatchesInRound = 0;
   let selectedLang = 'kr';
 
-  // Helper: Get Image URL
+  // Helper: Get Image URL (Same as main.js)
   const getImageUrl = (name) => {
-    const encodedName = encodeURIComponent(name);
+    let searchName = name;
+    if (name.includes('로제 떡볶이') || name.includes('Rose Tteokbokki')) {
+      searchName = "creamy delicious rose tteokbokki";
+    }
+    const encodedName = encodeURIComponent(searchName);
     return `https://tse2.mm.bing.net/th?q=${encodedName} food&w=400&h=400&c=7&rs=1&p=0`;
   };
 

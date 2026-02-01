@@ -338,8 +338,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
+    
+    // Improve image search query for specific menus
+    let searchName = name;
+    if (name.includes('로제 떡볶이') || name.includes('Rose Tteokbokki')) {
+      searchName = "creamy delicious rose tteokbokki";
+    } else if (name.includes('김밥') || name.includes('Gimbap')) {
+      searchName = "premium gimbap";
+    }
+
     // Use Bing Image Search Thumbnail for high relevance
-    const encodedName = encodeURIComponent(name);
+    const encodedName = encodeURIComponent(searchName);
     // w=400, h=400 forces a square thumbnail, c=7 extracts the main subject
     const imageUrl = `https://tse2.mm.bing.net/th?q=${encodedName} food&w=400&h=400&c=7&rs=1&p=0`;
     
