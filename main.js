@@ -107,15 +107,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Helper: Generate Random Estimated Nutrition
+  const generateNutrition = () => {
+    // Generate random values within a realistic meal range
+    const kcal = Math.floor(Math.random() * (950 - 400 + 1)) + 400;
+    const carbs = Math.floor(Math.random() * (120 - 30 + 1)) + 30;
+    const protein = Math.floor(Math.random() * (50 - 10 + 1)) + 10;
+    const fat = Math.floor(Math.random() * (40 - 10 + 1)) + 10;
+    return { kcal, carbs, protein, fat };
+  };
+
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
     // Use Bing Image Search Thumbnail for high relevance
-    // This fetches a search result thumbnail matching the menu name
     const encodedName = encodeURIComponent(name);
     // w=400, h=400 forces a square thumbnail, c=7 extracts the main subject
     const imageUrl = `https://tse2.mm.bing.net/th?q=${encodedName} food&w=400&h=400&c=7&rs=1&p=0`;
-    return { name, desc, imageUrl };
+    
+    // Add estimated nutrition
+    const nutr = generateNutrition();
+    
+    return { name, desc, imageUrl, nutr };
   };
 
   // Helper: Get Random Item from Array (Generic)
@@ -128,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fallback if data is missing
     if (rawList.length === 0) {
       return {
-        lunch: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data" },
-        dinner: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data" }
+        lunch: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data", nutr: { kcal: 0, carbs: 0, protein: 0, fat: 0 } },
+        dinner: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data", nutr: { kcal: 0, carbs: 0, protein: 0, fat: 0 } }
       };
     }
 
@@ -167,6 +180,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentCountry = 'kr';
 
+  // Helper to generate HTML for nutrition info
+  const getNutrHtml = (nutr) => `
+    <div class="nutrition-info">
+      <span>🔥 ${nutr.kcal} kcal</span>
+      <span>🍚 탄 ${nutr.carbs}g</span>
+      <span>🥩 단 ${nutr.protein}g</span>
+      <span>🧈 지 ${nutr.fat}g</span>
+    </div>
+  `;
+
   // Function to Update Content
   const updateContent = (countryCode) => {
     currentCountry = countryCode;
@@ -177,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dinnerHeader.textContent = config.headers.dinner;
     infoHeader.textContent = config.headers.info;
     refreshBtn.textContent = config.headers.btn;
-    if (refreshBtnBottom) refreshBtnBottom.textContent = config.headers.btn; // Update bottom button text
+    if (refreshBtnBottom) refreshBtnBottom.textContent = config.headers.btn;
 
     // Get Random Menus from the Massive Data File
     const { lunch, dinner } = getRandomMenuPair(countryCode);
@@ -187,11 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <img src="${lunch.imageUrl}" alt="${lunch.name}" class="menu-image">
       <h3>${lunch.name}</h3>
       <p>${lunch.desc}</p>
+      ${getNutrHtml(lunch.nutr)}
     `;
     dinnerCard.innerHTML = `
       <img src="${dinner.imageUrl}" alt="${dinner.name}" class="menu-image">
       <h3>${dinner.name}</h3>
       <p>${dinner.desc}</p>
+      ${getNutrHtml(dinner.nutr)}
     `;
     statsCard.innerHTML = `<p>${config.stats}</p>`;
 
@@ -222,11 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${lunch.imageUrl}" alt="${lunch.name}" class="menu-image">
           <h3>${lunch.name}</h3>
           <p>${lunch.desc}</p>
+          ${getNutrHtml(lunch.nutr)}
         `;
         dinnerCard.innerHTML = `
           <img src="${dinner.imageUrl}" alt="${dinner.name}" class="menu-image">
           <h3>${dinner.name}</h3>
           <p>${dinner.desc}</p>
+          ${getNutrHtml(dinner.nutr)}
         `;
         lunchCard.style.opacity = '1';
         dinnerCard.style.opacity = '1';
