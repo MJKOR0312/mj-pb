@@ -109,9 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Parse menu string "Name|Description"
   const parseMenu = (menuStr) => {
     const [name, desc] = menuStr.split('|');
-    // Generate a placeholder image URL based on the menu name
+    // Generate an AI image URL based on the menu name using Pollinations.ai
+    // Adding 'food' and 'delicious' to the prompt helps ensure relevant results
     const encodedName = encodeURIComponent(name);
-    const imageUrl = `https://placehold.co/600x400?text=${encodedName}`;
+    const imageUrl = `https://image.pollinations.ai/prompt/delicious%20${encodedName}%20food?width=600&height=400&nologo=true`;
     return { name, desc, imageUrl };
   };
 
