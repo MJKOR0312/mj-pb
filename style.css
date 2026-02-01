@@ -126,14 +126,24 @@ header h1 {
   color: var(--h2-color);
 }
 
-.menu-card, .stats-container {
+.menu-card {
   background: var(--card-bg);
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 5px var(--card-shadow);
   transition: opacity 0.2s, transform 0.2s, background-color 0.3s;
-  text-align: center; /* Center content in card */
-  min-height: 400px; /* Prevent layout shift before content loads */
+  text-align: center;
+  min-height: 400px; /* Keep for menu cards to prevent shift */
+}
+
+.stats-container {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px var(--card-shadow);
+  transition: background-color 0.3s;
+  text-align: center;
+  /* min-height removed to fit text content */
 }
 
 .menu-card:hover {
