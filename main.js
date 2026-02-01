@@ -16,6 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const articleTitle = document.getElementById('article-title');
   const articleContent = document.getElementById('article-content');
 
+  // Pairing Data (Drinks/Sides) per Country
+  const pairingData = {
+    kr: ["소주", "맥주", "막걸리", "단무지", "김치", "계란찜", "콜라", "사이다", "보리차"],
+    us: ["Coke", "Beer", "French Fries", "Iced Tea", "Milkshake", "Lemonade", "Pickles"],
+    uk: ["Tea", "Ale", "Chips", "Cider", "Gin & Tonic", "Mushy Peas"],
+    cn: ["青岛啤酒 (Tsingtao)", "茶 (Tea)", "可乐 (Coke)", "酸梅汤", "豆浆"],
+    jp: ["Green Tea", "Miso Soup", "Beer", "Highball", "Sake", "Pickles"],
+    th: ["Thai Iced Tea", "Coconut Water", "Singha Beer", "Sticky Rice"],
+    de: ["Beer (Pilsner)", "Radler", "Spezi", "Pretzel", "Sauerkraut"],
+    in: ["Lassi", "Chai", "Naan", "Raita"],
+    default: ["Coke", "Water", "Beer", "Tea"]
+  };
+
+  // Helper: Generate Random Pairing
+  const generatePairing = (countryCode) => {
+    const list = pairingData[countryCode] || pairingData.default;
+    return list[Math.floor(Math.random() * list.length)];
+  };
+
   // Basic Configuration Data (Headers & Stats)
   const countryConfig = {
     kr: {
@@ -23,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "ko",
       headers: { lunch: "☀️ 점심 메뉴 추천", dinner: "🌙 저녁 메뉴 추천", info: "📊 결정 피로도 & 문화", btn: "🔄 클릭해서 메뉴변경" },
       stats: "'결정 피로의 본고장'. 압도적인 배달 앱(배민, 쿠팡이츠) 인프라와 24시간 외식 문화가 결합해 매 끼니가 선택의 연속임.",
-      labels: { kcal: "🔥 칼로리", carbs: "🍚 탄", protein: "🥩 단", fat: "🧈 지" },
+      labels: { kcal: "🔥 칼로리", carbs: "🍚 탄", protein: "🥩 단", fat: "🧈 지", pair: "💡 꿀조합" },
       article: {
         title: "왜 우리는 '오늘 뭐 먹지?'를 고민할까요?",
         content: `
@@ -40,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "en",
       headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "'Paradox of Choice'. High stress due to endless customization options on apps like DoorDash.",
-      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat" },
+      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Best with" },
       article: {
         title: "Why Do We Struggle with \"What to Eat?\"",
         content: `
@@ -57,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "en",
       headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "Ranking #1 for most stressful daily decision: 'What to eat?'. High mobile dependency.",
-      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat" },
+      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Pair with" },
       article: {
         title: "Why Do We Struggle with \"What to Eat?\"",
         content: `
@@ -74,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "zh-CN",
       headers: { lunch: "☀️ 午餐推荐", dinner: "🌙 晚餐推荐", info: "📊 决策疲劳与文化", btn: "🔄 换个菜单" },
       stats: "'超级应用的统治'. 虽然美团(Meituan)解决了所有饮食问题，但选择过多导致认知过载.",
-      labels: { kcal: "🔥 卡路里", carbs: "🍚 碳水", protein: "🥩 蛋白", fat: "🧈 脂肪" },
+      labels: { kcal: "🔥 卡路里", carbs: "🍚 碳水", protein: "🥩 蛋白", fat: "🧈 脂肪", pair: "💡 搭配" },
       article: {
         title: "为什么我们总在纠结“今天吃什么”？",
         content: `
@@ -91,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "en",
       headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "66% of households feel fatigue daily. Struggle between health and taste with high mobile usage.",
-      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat" },
+      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Best with" },
       article: {
         title: "Why Do We Struggle with \"What to Eat?\"",
         content: `
@@ -108,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "tl",
       headers: { lunch: "☀️ Rekomendasyon sa Tanghalian", dinner: "🌙 Rekomendasyon sa Hapunan", info: "📊 Pagod sa Pagpapasya", btn: "🔄 Iba Pang Menu" },
       stats: "Highest screen time globally. Social media food culture creates conflict between 'craving' and 'trending'.",
-      labels: { kcal: "🔥 Kalorya", carbs: "🍚 Carbs", protein: "🥩 Protina", fat: "🧈 Taba" },
+      labels: { kcal: "🔥 Kalorya", carbs: "🍚 Carbs", protein: "🥩 Protina", fat: "🧈 Taba", pair: "💡 Bagay sa" },
       article: {
         title: "Bakit Tayo Nahihirapan sa \"Ano ang Kakainin?\"",
         content: `
@@ -125,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "pt",
       headers: { lunch: "☀️ Almoço Recomendado", dinner: "🌙 Jantar Recomendado", info: "📊 Fadiga de Decisão", btn: "🔄 Outro Menu" },
       stats: "Largest delivery market in LatAm (iFood). Long mobile usage leads to endless scrolling for menus.",
-      labels: { kcal: "🔥 Calorias", carbs: "🍚 Carbs", protein: "🥩 Prot", fat: "🧈 Gord" },
+      labels: { kcal: "🔥 Calorias", carbs: "🍚 Carbs", protein: "🥩 Prot", fat: "🧈 Gord", pair: "💡 Combina com" },
       article: {
         title: "Por que sofremos com \"O que comer?\"",
         content: `
@@ -142,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "zh-TW",
       headers: { lunch: "☀️ 午餐推薦", dinner: "🌙 晚餐推薦", info: "📊 決策疲勞與文化", btn: "🔄 換個菜單" },
       stats: "High reliance on convenience stores and dining out. Overwhelmed by mobile search for dense restaurant options.",
-      labels: { kcal: "🔥 卡路里", carbs: "🍚 碳水", protein: "🥩 蛋白", fat: "🧈 脂肪" },
+      labels: { kcal: "🔥 卡路里", carbs: "🍚 碳水", protein: "🥩 蛋白", fat: "🧈 脂肪", pair: "💡 搭配" },
       article: {
         title: "為什麼我們總在糾結「今天吃什麼」？",
         content: `
@@ -159,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "ja",
       headers: { lunch: "☀️ ラン치のおすすめ", dinner: "🌙 ディナーのおすすめ", info: "📊 決定疲労と文化", btn: "🔄 別のメニュー" },
       stats: "Traditional 'indecisiveness' mixed with sophisticated review apps (Tabelog) deepens the dilemma.",
-      labels: { kcal: "🔥 カロリー", carbs: "🍚 炭水", protein: "🥩 蛋白", fat: "🧈 脂質" },
+      labels: { kcal: "🔥 カロリー", carbs: "🍚 炭水", protein: "🥩 蛋白", fat: "🧈 脂質", pair: "💡 おすすめ" },
       article: {
         title: "なぜ私たちは「今日何を食べよう？」と悩むのか",
         content: `
@@ -176,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "hi",
       headers: { lunch: "☀️ दोपहर के भोजन का सुझाव", dinner: "🌙 रात के खाने का सुझाव", info: "📊 निर्णय थकान", btn: "🔄 दूसरा मेनू" },
       stats: "Explosion of Zomato/Swiggy usage. Digital dilemma amidst countless spices and side dish combinations.",
-      labels: { kcal: "🔥 कैलोरी", carbs: "🍚 कार्ब्स", protein: "🥩 प्रोटीन", fat: "🧈 वसा" },
+      labels: { kcal: "🔥 कैलोरी", carbs: "🍚 कार्ब्स", protein: "🥩 प्रोटीन", fat: "🧈 वसा", pair: "💡 इसके साथ" },
       article: {
         title: "हम \"क्या खाएं?\" को लेकर संघर्ष क्यों करते हैं?",
         content: `
@@ -193,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "en",
       headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "Similar delivery culture to USA. Cold weather leads to longer app browsing times instead of going out.",
-      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat" },
+      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Best with" },
       article: {
         title: "Why Do We Struggle with \"What to Eat?\"",
         content: `
@@ -210,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "th",
       headers: { lunch: "☀️ แนะนำมื้อกลางวัน", dinner: "🌙 แนะนำมื้อเย็น", info: "📊 ความเหนื่อยล้าในการตัดสินใจ", btn: "🔄 เมนูอื่น" },
       stats: "Grab delivery culture. Variety of street food moving to digital platforms creates too many choices.",
-      labels: { kcal: "🔥 แคลอรี่", carbs: "🍚 คาร์บ", protein: "🥩 โปรตีน", fat: "🧈 ไขมัน" },
+      labels: { kcal: "🔥 แคลอรี่", carbs: "🍚 คาร์บ", protein: "🥩 โปรตีน", fat: "🧈 ไขมัน", pair: "💡 กินกับ" },
       article: {
         title: "ทำไมเราถึงลำบากใจกับคำถามว่า \"กินอะไรดี?\"",
         content: `
@@ -227,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "en",
       headers: { lunch: "☀️ Lunch Recommendation", dinner: "🌙 Dinner Recommendation", info: "📊 Decision Fatigue & Culture", btn: "🔄 Click for Another Menu" },
       stats: "Too many hawker centers in a small area. 'Foodie' culture leads to time spent finding the best value/taste.",
-      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat" },
+      labels: { kcal: "🔥 Calories", carbs: "🍚 Carbs", protein: "🥩 Protein", fat: "🧈 Fat", pair: "💡 Best with" },
       article: {
         title: "Why Do We Struggle with \"What to Eat?\"",
         content: `
@@ -244,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "ar",
       headers: { lunch: "☀️ توصية الغداء", dinner: "🌙 توصية العشاء", info: "📊 إرهاق القرار والثقافة", btn: "🔄 قائمة أخرى" },
       stats: "High smartphone penetration + mix of global cuisines. Ability to order anything makes choosing harder.",
-      labels: { kcal: "🔥 سعرات", carbs: "🍚 كربوهيدرات", protein: "🥩 بروتين", fat: "🧈 دهون" },
+      labels: { kcal: "🔥 سعرات", carbs: "🍚 كربوهيدرات", protein: "🥩 بروتين", fat: "🧈 دهون", pair: "💡 أفضل مع" },
       article: {
         title: "لماذا نعاني مع سؤال \"ماذا نأكل؟\"",
         content: `
@@ -261,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lang: "de",
       headers: { lunch: "☀️ Mittagessen Empfehlung", dinner: "🌙 Abendessen Empfehlung", info: "📊 Entscheidungsmüdigkeit", btn: "🔄 Anderes Menü" },
       stats: "Surging delivery trend. Efficiency valued, but increasing variety causes fatigue among the youth.",
-      labels: { kcal: "🔥 Kalorien", carbs: "🍚 Kohlen", protein: "🥩 Protein", fat: "🧈 Fett" },
+      labels: { kcal: "🔥 Kalorien", carbs: "🍚 Kohlen", protein: "🥩 Protein", fat: "🧈 Fett", pair: "💡 Dazu passt" },
       article: {
         title: "Warum fällt uns die Frage \"Was essen wir?\" so schwer?",
         content: `
@@ -296,7 +315,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add estimated nutrition
     const nutr = generateNutrition();
     
-    return { name, desc, imageUrl, nutr };
+    // Add pairing
+    const currentCountry = document.getElementById('country-selector').value || 'kr';
+    const pairing = generatePairing(currentCountry);
+    
+    return { name, desc, imageUrl, nutr, pairing };
   };
 
   // Helper: Get Random Item from Array (Generic)
@@ -309,8 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fallback if data is missing
     if (rawList.length === 0) {
       return {
-        lunch: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data", nutr: { kcal: 0, carbs: 0, protein: 0, fat: 0 } },
-        dinner: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data", nutr: { kcal: 0, carbs: 0, protein: 0, fat: 0 } }
+        lunch: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data", nutr: { kcal: 0, carbs: 0, protein: 0, fat: 0 }, pairing: "N/A" },
+        dinner: { name: "N/A", desc: "No menu data available.", imageUrl: "https://placehold.co/600x400?text=No+Data", nutr: { kcal: 0, carbs: 0, protein: 0, fat: 0 }, pairing: "N/A" }
       };
     }
 
@@ -358,6 +381,20 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
 
+  // Helper to generate HTML for pairing and action buttons
+  const getPairingHtml = (menuName, pairing, labels) => {
+    const encodedName = encodeURIComponent(menuName);
+    return `
+      <div class="pairing-section">
+        <p class="pairing-text">${labels.pair}: <strong>${pairing}</strong></p>
+        <div class="action-buttons">
+          <a href="https://www.google.com/maps/search/${encodedName}" target="_blank" class="action-btn map-btn">📍 식당 찾기</a>
+          <a href="https://www.youtube.com/results?search_query=${encodedName}+먹방" target="_blank" class="action-btn youtube-btn">📺 영상 보기</a>
+        </div>
+      </div>
+    `;
+  };
+
   // Function to Update Content
   const updateContent = (countryCode) => {
     currentCountry = countryCode;
@@ -379,12 +416,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <h3>${lunch.name}</h3>
       <p>${lunch.desc}</p>
       ${getNutrHtml(lunch.nutr, config.labels)}
+      ${getPairingHtml(lunch.name, lunch.pairing, config.labels)}
     `;
     dinnerCard.innerHTML = `
       <img src="${dinner.imageUrl}" alt="${dinner.name}" class="menu-image">
       <h3>${dinner.name}</h3>
       <p>${dinner.desc}</p>
       ${getNutrHtml(dinner.nutr, config.labels)}
+      ${getPairingHtml(dinner.name, dinner.pairing, config.labels)}
     `;
     statsCard.innerHTML = `<p>${config.stats}</p>`;
 
@@ -423,12 +462,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>${lunch.name}</h3>
           <p>${lunch.desc}</p>
           ${getNutrHtml(lunch.nutr, config.labels)}
+          ${getPairingHtml(lunch.name, lunch.pairing, config.labels)}
         `;
         dinnerCard.innerHTML = `
           <img src="${dinner.imageUrl}" alt="${dinner.name}" class="menu-image">
           <h3>${dinner.name}</h3>
           <p>${dinner.desc}</p>
           ${getNutrHtml(dinner.nutr, config.labels)}
+          ${getPairingHtml(dinner.name, dinner.pairing, config.labels)}
         `;
         lunchCard.style.opacity = '1';
         dinnerCard.style.opacity = '1';
