@@ -497,8 +497,28 @@ document.addEventListener('DOMContentLoaded', () => {
     contentArea.className = `lang-${config.lang}`;
   };
 
-  // Initial Load
-  updateContent('kr');
+  // Initial Load with IP Geolocation
+  const detectUserCountry = async () => {
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      if (!response.ok) throw new Error('Geo-IP fetch failed');
+      const data = await response.json();
+      const countryCode = data.country_code.toLowerCase();
+      
+      // Check if we support this country, otherwise default to 'kr'
+      if (countryConfig[countryCode]) {
+        countrySelector.value = countryCode;
+        updateContent(countryCode);
+      } else {
+        updateContent('kr');
+      }
+    } catch (error) {
+      console.warn('Geolocation failed, defaulting to KR:', error);
+      updateContent('kr');
+    }
+  };
+
+  detectUserCountry();
 
   // Country Selection Event
   countrySelector.addEventListener('change', (e) => {
