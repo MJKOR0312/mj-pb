@@ -99,7 +99,7 @@ header h1 {
 }
 
 /* Specific style for refresh button to make it stand out significantly */
-#refresh-btn {
+#refresh-btn, #refresh-btn-bottom {
   background-color: var(--h2-color);
   color: #fff;
   font-weight: bold;
@@ -119,14 +119,14 @@ header h1 {
   100% { transform: scale(1); box-shadow: 0 4px 15px var(--shadow-color); }
 }
 
-#refresh-btn:hover {
+#refresh-btn:hover, #refresh-btn-bottom:hover {
   background-color: var(--h2-border);
   transform: scale(1.1);
   animation: none; /* Stop pulsing on hover */
   box-shadow: 0 6px 20px var(--shadow-color);
 }
 
-#refresh-btn:active {
+#refresh-btn:active, #refresh-btn-bottom:active {
   transform: scale(0.98);
 }
 

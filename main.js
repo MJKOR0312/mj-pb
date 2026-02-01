@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const refreshBtn = document.getElementById('refresh-btn');
+  const refreshBtnBottom = document.getElementById('refresh-btn-bottom');
   const body = document.body;
   const dateElement = document.getElementById('today-date');
   const countrySelector = document.getElementById('country-selector');
@@ -176,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dinnerHeader.textContent = config.headers.dinner;
     infoHeader.textContent = config.headers.info;
     refreshBtn.textContent = config.headers.btn;
+    if (refreshBtnBottom) refreshBtnBottom.textContent = config.headers.btn; // Update bottom button text
 
     // Get Random Menus from the Massive Data File
     const { lunch, dinner } = getRandomMenuPair(countryCode);
@@ -207,8 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateContent(e.target.value);
   });
 
-  // Refresh Button Event
-  refreshBtn.addEventListener('click', () => {
+  // Common Refresh Function
+  const handleRefresh = () => {
     const { lunch, dinner } = getRandomMenuPair(currentCountry);
     
     // Simple animation effect
@@ -229,7 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
         lunchCard.style.opacity = '1';
         dinnerCard.style.opacity = '1';
     }, 200);
-  });
+  };
+
+  // Refresh Button Events
+  refreshBtn.addEventListener('click', handleRefresh);
+  if (refreshBtnBottom) refreshBtnBottom.addEventListener('click', handleRefresh);
 
   // Theme Toggle Logic
   themeToggleBtn.addEventListener('click', () => {
