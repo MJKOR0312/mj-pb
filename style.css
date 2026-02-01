@@ -400,13 +400,92 @@ body.dark-mode .ad-placeholder {
 }
 
 /* Mobile Responsiveness Updates */
-@media (max-width: 600px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .info-article, .privacy-content {
-    padding: 20px;
-  }
+/* Share Card Capture Design */
+.share-card-design {
+  width: 400px;
+  background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.share-card-design .card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.share-card-design .share-image-container {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.share-card-design #share-menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.share-card-design h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.share-card-design #share-menu-desc {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  opacity: 0.95;
+  min-height: 3em;
+}
+
+.share-card-design .share-nutr {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.share-card-design .share-nutr span {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.share-card-design .share-pairing {
+  background: #f1c40f;
+  color: #2c3e50;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.share-card-design .card-footer {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+  font-size: 0.8rem;
+}
+
+.share-card-design .card-url {
+  font-weight: bold;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+/* Share Button Loading State */
+.share-btn.loading {
+  opacity: 0.7;
+  cursor: wait;
 }

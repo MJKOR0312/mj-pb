@@ -500,26 +500,77 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   };
 
-  // Global Share Handler using Event Delegation
+  // Global Share Handler (Upgraded to Image Capture)
   document.addEventListener('click', async (e) => {
     if (e.target.classList.contains('share-btn')) {
-      const menuName = e.target.getAttribute('data-menu');
-      const shareData = {
-        title: '오늘의 메뉴 추천',
-        text: `오늘 ${menuName} 어때요? 😋\n추천 메뉴 보러가기:`,
-        url: window.location.href
-      };
+      const btn = e.target;
+      const menuName = btn.getAttribute('data-menu');
+      const card = btn.closest('.menu-card');
+      
+      // Prevent multiple clicks
+      if (btn.classList.contains('loading')) return;
+      btn.classList.add('loading');
+      const originalText = btn.textContent;
+      btn.textContent = '📸 Generating...';
 
       try {
-        if (navigator.share) {
-          await navigator.share(shareData);
+        // 1. Prepare Hidden Share Card
+        const shareImg = document.getElementById('share-menu-img');
+        const shareName = document.getElementById('share-menu-name');
+        const shareDesc = document.getElementById('share-menu-desc');
+        const shareNutr = document.getElementById('share-menu-nutr');
+        const sharePairing = document.getElementById('share-pairing-text');
+        const shareDate = document.getElementById('share-date');
+
+        // Extract current data from the UI
+        shareImg.src = card.querySelector('img').src;
+        shareName.textContent = menuName;
+        shareDesc.textContent = card.querySelector('p').textContent;
+        shareNutr.innerHTML = card.querySelector('.nutrition-info').innerHTML;
+        sharePairing.textContent = card.querySelector('.pairing-text strong').textContent;
+        shareDate.textContent = dateElement.textContent;
+
+        // 2. Wait for image to load to ensure capture is complete
+        await new Promise(resolve => {
+          if (shareImg.complete) resolve();
+          else shareImg.onload = resolve;
+        });
+
+        // 3. Capture with html2canvas
+        const target = document.getElementById('capture-target');
+        const canvas = await html2canvas(target, {
+          useCORS: true,
+          scale: 2, // High quality
+          backgroundColor: null
+        });
+
+        // 4. Share or Download
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([], "menu.png", { type: "image/png" })] })) {
+          canvas.toBlob(async (blob) => {
+            const file = new File([blob], `MenuGenie_${menuName}.png`, { type: 'image/png' });
+            await navigator.share({
+              files: [file],
+              title: '오늘의 메뉴 추천',
+              text: `오늘 ${menuName} 어때요? 😋 #MenuGenie`
+            });
+          });
         } else {
-          // Fallback for PC
-          await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
-          alert('메뉴가 클립보드에 복사되었습니다! 친구에게 붙여넣기 하세요. 📋');
+          // Fallback: Download for Desktop
+          const link = document.createElement('a');
+          link.download = `MenuGenie_${menuName}.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          alert('공유용 이미지가 생성되어 다운로드되었습니다! 친구들에게 자랑해보세요. 📸');
         }
       } catch (err) {
         console.error('Share failed:', err);
+        alert('이미지 생성에 실패했습니다. 대신 텍스트로 공유할게요!');
+        // Fallback to text
+        const shareText = `오늘 ${menuName} 어때요? 😋\n${window.location.href}`;
+        navigator.clipboard.writeText(shareText);
+      } finally {
+        btn.classList.remove('loading');
+        btn.textContent = originalText;
       }
     }
   });
