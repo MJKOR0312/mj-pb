@@ -393,6 +393,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dinnerScore > lunchScore) return 'dinner';
     
     // Specific logic for common items that fit both but lean one way based on context
+    // Stricter Lunch-only items
+    if (name.includes('gimbap') || name.includes('김밥') || 
+        name.includes('toast') || name.includes('토스트') || 
+        name.includes('sandwich') || name.includes('샌드위치') ||
+        name.includes('bagel') || name.includes('베이글') ||
+        name.includes('noodle') || name.includes('국수') || name.includes('ramen') || name.includes('라면') ||
+        name.includes('udon') || name.includes('우동') ||
+        name.includes('lunch') || name.includes('breakfast') || name.includes('brunch')) {
+      return 'lunch';
+    }
+    
     if (name.includes('pizza') || name.includes('pasta')) return 'lunch'; // Leans lunch often but ok for dinner
     if (name.includes('stew') || name.includes('soup')) return 'lunch';
     
