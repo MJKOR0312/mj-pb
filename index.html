@@ -1,50 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Menu Recommender</title>
-  <link href='/style.css' rel='stylesheet'>
-  <!-- Google Fonts for global scripts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC&family=Noto+Sans+TC&family=Noto+Sans+JP&family=Noto+Sans+Thai&family=Noto+Sans+Arabic&family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Meta Tags for AdSense -->
+  <title>Global Lunch & Dinner Menu Recommender | Solve Decision Fatigue</title>
+  <meta name="description" content="Stop worrying about what to eat! Get instant AI-powered lunch and dinner recommendations customized for 15+ countries. Solve your daily menu decision fatigue now.">
+  <meta name="keywords" content="lunch recommendation, dinner menu, food picker, random menu generator, decision fatigue, what to eat, global cuisine">
+  <meta name="author" content="MJ-PB">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Today's Menu Recommendation">
+  <meta property="og:description" content="Instant random menu recommendations for lunch and dinner.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">🍽️ MenuGenie</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
-    <header>
-      <h1>Global Menu Recommender</h1>
-      <p id="today-date"></p>
-      <div class="controls">
-        <select id="country-selector">
-          <!-- Options will be populated by JS -->
-        </select>
-        <button id="refresh-btn" class="theme-toggle">🔄 New Menu</button>
-        <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
+    
+    <!-- Main Application Section -->
+    <main id="app-container">
+      <header>
+        <h1 id="main-title">오늘 뭐 먹지?</h1>
+        <div class="controls">
+          <select id="country-selector">
+            <!-- Options populated by JS -->
+          </select>
+          <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
+        </div>
+        <p class="date" id="today-date"></p>
+      </header>
+
+      <div id="content-area">
+        <section class="menu-section">
+          <h2 id="lunch-header">☀️ 점심 메뉴 추천</h2>
+          <div class="menu-card" id="lunch-card">
+            <!-- Content populated by JS -->
+          </div>
+        </section>
+
+        <section class="menu-section">
+          <h2 id="dinner-header">🌙 저녁 메뉴 추천</h2>
+          <div class="menu-card" id="dinner-card">
+            <!-- Content populated by JS -->
+          </div>
+        </section>
+
+        <button id="refresh-btn">🔄 다른 메뉴 추천</button>
+
+        <section class="stats-container">
+          <h2 id="info-header">📊 결정 피로도 & 문화</h2>
+          <div id="stats-card">
+            <!-- Content populated by JS -->
+          </div>
+        </section>
       </div>
-    </header>
-
-    <main id="content-area">
-      <!-- Dynamic Content will appear here -->
-      <section class="menu-section">
-        <h2 id="lunch-header">Lunch</h2>
-        <div class="menu-card" id="lunch-card"></div>
-      </section>
-
-      <section class="menu-section">
-        <h2 id="dinner-header">Dinner</h2>
-        <div class="menu-card" id="dinner-card"></div>
-      </section>
-
-      <section class="menu-section">
-        <h2 id="info-header">Culture & Stats</h2>
-        <div class="stats-container" id="stats-card"></div>
-      </section>
     </main>
 
-    <footer>
-      <p>※ Recommendations are based on cultural preferences.</p>
-    </footer>
+    <!-- SEO Content Section (Crucial for AdSense) -->
+    <article class="info-article">
+      <h2>Why Do We Struggle with "What to Eat?"</h2>
+      <p>
+        In modern society, the question "What should I eat for lunch?" has become a significant source of daily stress. 
+        This phenomenon, known as <strong>Decision Fatigue</strong>, occurs when the sheer volume of choices we face every day depletes our mental energy.
+        With the rise of food delivery apps and global cuisine options, the paradox of choice makes simple decisions harder.
+      </p>
+
+      <h3>How MenuGenie Helps You</h3>
+      <p>
+        MenuGenie is designed to bypass the cognitive load of choosing a meal. By utilizing intelligent randomization algorithms 
+        tailored to specific cultural contexts (from Korean stews to American burgers), we provide instant, appetizing suggestions.
+        This allows you to save your mental energy for more important tasks while discovering new dishes you might not have considered.
+      </p>
+
+      <h3>Global Food Culture at a Glance</h3>
+      <p>
+        Food is not just fuel; it's culture. Our database covers over 15 countries, reflecting the unique dietary habits of each region.
+        Whether it's the communal dining culture of South Korea, the quick-service efficiency of Japan, or the diverse street food of Thailand,
+        MenuGenie respects and highlights these cultural nuances in its recommendations.
+      </p>
+    </article>
+
+    <!-- AdSense Placeholder (Where ads will go) -->
+    <div class="ad-placeholder">
+      <p>Advertisement Space</p>
+    </div>
+
   </div>
-  <script src="/menu-data.js"></script>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+  <footer>
+    <p>&copy; 2026 MenuGenie. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a> | 
+      <a href="#">Contact Us</a>
+    </div>
+  </footer>
+
+  <script src="menu-data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
