@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mjkor0312.github.io/mj-pb/sitemap.xml
