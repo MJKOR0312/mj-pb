@@ -16,21 +16,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const articleTitle = document.getElementById('article-title');
   const articleContent = document.getElementById('article-content');
 
-  // Pairing Data (Drinks/Sides) per Country
+  // Fallback Pairing Data (Drinks/Sides) per Country
   const pairingData = {
-    kr: ["소주", "맥주", "막걸리", "단무지", "김치", "계란찜", "콜라", "사이다", "보리차"],
-    us: ["Coke", "Beer", "French Fries", "Iced Tea", "Milkshake", "Lemonade", "Pickles"],
-    uk: ["Tea", "Ale", "Chips", "Cider", "Gin & Tonic", "Mushy Peas"],
-    cn: ["青岛啤酒 (Tsingtao)", "茶 (Tea)", "可乐 (Coke)", "酸梅汤", "豆浆"],
-    jp: ["Green Tea", "Miso Soup", "Beer", "Highball", "Sake", "Pickles"],
-    th: ["Thai Iced Tea", "Coconut Water", "Singha Beer", "Sticky Rice"],
-    de: ["Beer (Pilsner)", "Radler", "Spezi", "Pretzel", "Sauerkraut"],
-    in: ["Lassi", "Chai", "Naan", "Raita"],
-    default: ["Coke", "Water", "Beer", "Tea"]
+    kr: ["시원한 물", "보리차", "사이다", "콜라", "김치"],
+    us: ["Coke", "Iced Tea", "Water", "Fries"],
+    default: ["Water", "Coke", "Tea"]
   };
 
-  // Helper: Generate Random Pairing
-  const generatePairing = (countryCode) => {
+  // Helper: Smart Pairing Logic based on Menu Name
+  const getSmartPairing = (menuName, countryCode) => {
+    const name = menuName.toLowerCase();
+
+    // 1. Korean Menu Logic (Specific matches for Korean text)
+    if (countryCode === 'kr') {
+      if (name.includes('삼겹살') || name.includes('갈비') || name.includes('곱창')) return '소주 & 된장찌개';
+      if (name.includes('치킨') || name.includes('닭강정')) return '맥주 & 치킨무';
+      if (name.includes('피자') || name.includes('파스타')) return '콜라 & 피클';
+      if (name.includes('짜장') || name.includes('짬뽕') || name.includes('탕수육')) return '단무지 & 양파';
+      if (name.includes('떡볶이') || name.includes('분식')) return '쿨피스 & 튀김';
+      if (name.includes('찌개') || name.includes('탕') || name.includes('국')) return '흰쌀밥 & 계란말이';
+      if (name.includes('파전') || name.includes('빈대떡') || name.includes('전')) return '막걸리 & 양파장아찌';
+      if (name.includes('회') || name.includes('초밥')) return '소주(청하) & 락교';
+      if (name.includes('냉면') || name.includes('밀면')) return '만두 & 무절임';
+      if (name.includes('비빔밥') || name.includes('덮밥')) return '콩나물국 & 김치';
+      if (name.includes('국수') || name.includes('우동')) return '김밥 & 김치';
+      if (name.includes('샌드위치') || name.includes('토스트') || name.includes('빵')) return '아메리카노 & 우유';
+      if (name.includes('샐러드') || name.includes('포케')) return '탄산수 & 과일';
+      if (name.includes('족발') || name.includes('보쌈')) return '막국수 & 소주';
+      if (name.includes('죽')) return '동치미 & 장조림';
+    }
+
+    // 2. Global/English Logic
+    if (name.includes('burger') || name.includes('hot dog')) return 'Coke & French Fries';
+    if (name.includes('pizza')) return 'Beer & Garlic Dip';
+    if (name.includes('steak') || name.includes('roast')) return 'Red Wine & Mashed Potatoes';
+    if (name.includes('pasta') || name.includes('spaghetti')) return 'White Wine & Garlic Bread';
+    if (name.includes('sushi') || name.includes('sashimi')) return 'Green Tea & Miso Soup';
+    if (name.includes('ramen') || name.includes('noodle')) return 'Gyoza & Kimchi';
+    if (name.includes('rice') || name.includes('curry')) return 'Lassi or Pickle';
+    if (name.includes('salad') || name.includes('sandwich')) return 'Iced Coffee & Fruit';
+    if (name.includes('taco') || name.includes('burrito')) return 'Margarita & Nachos';
+    if (name.includes('chicken') && !name.includes('salad')) return 'Beer & Coleslaw';
+    if (name.includes('dim sum') || name.includes('dumpling')) return 'Oolong Tea';
+    if (name.includes('pho') || name.includes('bun cha')) return 'Spring Rolls & Lime Soda';
+    if (name.includes('fish') && name.includes('chips')) return 'Beer & Tartare Sauce';
+
+    // 3. Fallback to Country Default if no specific keyword matched
     const list = pairingData[countryCode] || pairingData.default;
     return list[Math.floor(Math.random() * list.length)];
   };
@@ -315,9 +346,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add estimated nutrition
     const nutr = generateNutrition();
     
-    // Add pairing
+    // Add pairing via Smart Logic
     const currentCountry = document.getElementById('country-selector').value || 'kr';
-    const pairing = generatePairing(currentCountry);
+    const pairing = getSmartPairing(name, currentCountry);
     
     return { name, desc, imageUrl, nutr, pairing };
   };
