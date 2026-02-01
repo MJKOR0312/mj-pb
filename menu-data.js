@@ -1,6 +1,5 @@
 window.MENU_DATA = {
   kr: [
-    // 한식 (Korean) - 100+ variations
     "김치찌개|한국인의 소울 푸드, 돼지고기와 김치의 얼큰한 조화",
     "된장찌개|구수한 국물과 두부, 애호박이 어우러진 집밥의 정석",
     "순두부찌개|부드러운 순두부와 매콤한 고추기름의 만남",
@@ -105,7 +104,19 @@ window.MENU_DATA = {
     "피자 (고르곤졸라)|꿀에 찍어 먹는 고소한 치즈 피자",
     "스테이크|육즙 가득한 소고기 칼질",
     "햄버거 (수제)|육즙 가득한 패티와 신선한 야채",
-    "카레라이스|향긋한 카레 향과 밥의 조화"
+    "카레라이스|향긋한 카레 향과 밥의 조화",
+    "닭한마리|시원한 국물에 닭과 칼국수를 즐기는 요리",
+    "어묵탕|뜨끈한 국물에 다양한 어묵을 넣은 술안주",
+    "곱창구이|고소한 곱이 가득 찬 소곱창 구이",
+    "대창구이|기름진 맛이 일품인 소대창",
+    "막창구이|쫄깃한 식감이 매력적인 구이",
+    "양꼬치|숯불에 돌려가며 굽는 양고기 꼬치",
+    "마라탕면|마라탕에 면을 추가해 든든하게 즐기는 요리",
+    "우동|오동통한 면발과 시원한 국물",
+    "냉모밀|여름철 시원하게 즐기는 메밀국수",
+    "판모밀|쯔유 소스에 찍어 먹는 깔끔한 메밀국수",
+    "샤브샤브|얇은 고기와 채소를 육수에 살짝 익혀 먹는 요리",
+    "편백찜|편백나무 통에 고기와 채소를 쪄낸 담백한 요리"
   ],
   us: [
     "Cheeseburger|Juicy beef patty with cheddar cheese, lettuce, and tomato",
@@ -183,7 +194,16 @@ window.MENU_DATA = {
     "Shrimp Scampi|Shrimp cooked in garlic, butter, and white wine sauce",
     "Fish Tacos|Grilled or fried fish in corn tortillas with slaw",
     "Key Lime Pie|Sweet and tart dessert pie",
-    "Apple Pie|Classic American dessert with vanilla ice cream"
+    "Apple Pie|Classic American dessert with vanilla ice cream",
+    "Chicken Fried Steak|Breaded beef cutlet served with country gravy",
+    "Biscuits and Gravy|Soft dough biscuits covered in pork sausage gravy",
+    "Po' Boy|Traditional Louisiana sandwich with fried seafood",
+    "Etouffee|Shellfish simmered in a roux-based sauce served over rice",
+    "Cuban Sandwich|Ham, roasted pork, Swiss cheese, pickles, and mustard on Cuban bread",
+    "Frito Pie|Chili, cheese, and onions served over corn chips",
+    "Tater Tot Casserole|Casserole made with meat, chili, and crispy tater tots",
+    "California Burrito|Burrito filled with carne asada and french fries",
+    "Cioppino|Seafood stew originating from San Francisco"
   ],
   jp: [
     "Sushi (Nigiri)|Hand-pressed vinegared rice topped with fresh raw fish",
@@ -250,7 +270,14 @@ window.MENU_DATA = {
     "Taiyaki|Fish-shaped cake filled with red bean or custard",
     "Mochi|Rice cake",
     "Dango|Sweet rice dumplings on a skewer",
-    "Matcha Ice Cream|Green tea flavored ice cream"
+    "Matcha Ice Cream|Green tea flavored ice cream",
+    "Kaiseki Ryori|Traditional multi-course Japanese dinner",
+    "Teishoku|Set meal with main dish, rice, soup, and pickles",
+    "Butadon|Pork bowl simmered in sweet soy sauce",
+    "Tebasaki|Grilled chicken wings, famous in Nagoya",
+    "Doteyaki|Beef tendons stewed in miso and mirin",
+    "Jingisukan|Grilled lamb dish from Hokkaido",
+    "Soup Curry|Spicy curry soup with vegetables and chicken"
   ],
   cn: [
     "Peking Duck|Crispy roasted duck served with pancakes",
@@ -297,41 +324,60 @@ window.MENU_DATA = {
     "Tangyuan|Glutinous rice balls filled with sesame or peanut",
     "Soy Milk and You Tiao|Fried dough stick dipped in warm soy milk",
     "Tea Egg|Hard-boiled egg stewed in tea and spices",
-    "Bubble Tea|Milk tea with tapioca pearls"
+    "Bubble Tea|Milk tea with tapioca pearls",
+    "Malatang|Spicy hot pot soup street food",
+    "Sichuan Wontons in Chili Oil|Spicy dumplings",
+    "Shanghai Fried Noodles|Thick noodles fried with dark soy sauce",
+    "Dry Pot (Mala Xiang Guo)|Stir-fried spicy pot without broth",
+    "Claypot Rice|Rice cooked in a claypot with preserved meat",
+    "Steamed Fish|Whole fish steamed with ginger and scallions",
+    "Salt and Pepper Squid|Crispy squid tossed with spices",
+    "Beef Chow Fun|Wide rice noodles stir-fried with beef",
+    "Turnip Cake|Pan-fried radish cake, dim sum classic",
+    "Egg Tart|Flaky pastry filled with egg custard"
   ],
-  // ... (Other countries follow similar pattern, populating ~40-50 items to keep file reasonable but huge)
   uk: [
-    "Fish and Chips|Battered fish with thick fries", "Sunday Roast|Beef, potatoes, veg, and Yorkshire pudding", "Full English Breakfast|Eggs, bacon, sausage, beans, toast", "Bangers and Mash|Sausages with mashed potatoes and gravy", "Shepherd's Pie|Lamb mince topped with mashed potato", "Cottage Pie|Beef mince topped with mashed potato", "Toad in the Hole|Sausages baked in Yorkshire pudding batter", "Beef Wellington|Steak coated in pate and wrapped in puff pastry", "Cornish Pasty|Pastry filled with meat and veg", "Steak and Kidney Pie|Savory pie with beef and kidney", "Chicken Tikka Masala|Creamy curry, UK's national dish", "Ploughman's Lunch|Cheese, pickle, and bread platter", "Scotch Egg|Hard-boiled egg wrapped in sausage meat", "Black Pudding|Blood sausage, breakfast staple", "Haggis|Traditional Scottish savory pudding", "Welsh Rarebit|Cheese sauce on toast", "Eton Mess|Meringue, cream, and strawberries", "Scones with Clotted Cream|Tea time classic", "Victoria Sponge|Sponge cake with jam and cream", "Sticky Toffee Pudding|Sponge cake with toffee sauce", "Crumpets|Griddle cakes eaten with butter", "Jellied Eels|Traditional cockney dish", "Bubble and Squeak|Fried leftover vegetables", "Lancashire Hotpot|Lamb and potato stew", "Roast Chicken|Sunday classic with stuffing", "Pork Pie|Cold meat pie", "Kedgeree|Smoked haddock and rice dish", "Cucumber Sandwiches|Afternoon tea classic", "Trifle|Layered dessert with custard and fruit", "Spotted Dick|Suet pudding with dried fruit"
+    "Fish and Chips|Battered fish with thick fries", "Sunday Roast|Beef, potatoes, veg, and Yorkshire pudding", "Full English Breakfast|Eggs, bacon, sausage, beans, toast", "Bangers and Mash|Sausages with mashed potatoes and gravy", "Shepherd's Pie|Lamb mince topped with mashed potato", "Cottage Pie|Beef mince topped with mashed potato", "Toad in the Hole|Sausages baked in Yorkshire pudding batter", "Beef Wellington|Steak coated in pate and wrapped in puff pastry", "Cornish Pasty|Pastry filled with meat and veg", "Steak and Kidney Pie|Savory pie with beef and kidney", "Chicken Tikka Masala|Creamy curry, UK's national dish", "Ploughman's Lunch|Cheese, pickle, and bread platter", "Scotch Egg|Hard-boiled egg wrapped in sausage meat", "Black Pudding|Blood sausage, breakfast staple", "Haggis|Traditional Scottish savory pudding", "Welsh Rarebit|Cheese sauce on toast", "Eton Mess|Meringue, cream, and strawberries", "Scones with Clotted Cream|Tea time classic", "Victoria Sponge|Sponge cake with jam and cream", "Sticky Toffee Pudding|Sponge cake with toffee sauce", "Crumpets|Griddle cakes eaten with butter", "Jellied Eels|Traditional cockney dish", "Bubble and Squeak|Fried leftover vegetables", "Lancashire Hotpot|Lamb and potato stew", "Roast Chicken|Sunday classic with stuffing", "Pork Pie|Cold meat pie", "Kedgeree|Smoked haddock and rice dish", "Cucumber Sandwiches|Afternoon tea classic", "Trifle|Layered dessert with custard and fruit", "Spotted Dick|Suet pudding with dried fruit",
+    "Bacon Sandwich|Bacon rashers between buttered white bread", "Beans on Toast|Baked beans served on buttered toast", "Steak and Ale Pie|Steak stewed in ale wrapped in pastry", "Cauliflower Cheese|Cauliflower baked in cheese sauce", "Gammon and Pineapple|Cured pork steak with grilled pineapple", "Kippers|Smoked herring, often for breakfast", "Beef and Guinness Stew|Rich stew made with stout beer", "Eccles Cake|Flaky pastry filled with currants", "Bakewell Tart|Shortcrust pastry with jam and almond filling", "Chelsea Bun|Currant bun with lemon peel and spices", "Yorkshire Pudding|Baked batter served with gravy", "Mince Pies|Christmas pastry filled with dried fruit", "Cullen Skink|Thick soup made of smoked haddock", "Stargazy Pie|Pie with fish heads protruding from crust", "Pie and Mash|Meat pie with mashed potatoes and liquor sauce"
   ],
   in: [
-    "Butter Chicken|Creamy tomato curry", "Chicken Tikka Masala|Spiced curry with roasted chicken", "Biryani (Chicken)|Spiced rice with chicken", "Biryani (Mutton)|Spiced rice with goat meat", "Palak Paneer|Spinach curry with cottage cheese", "Chole Bhature|Spicy chickpeas with fried bread", "Masala Dosa|Crepe with potato filling", "Samosa|Fried pastry with savory filling", "Vada Pav|Spicy potato fritter in a bun", "Pav Bhaji|Vegetable mash with buttered bread", "Tandoori Chicken|Roasted chicken with yogurt and spices", "Rogann Josh|Aromatic lamb curry", "Dal Makhani|Creamy black lentil stew", "Aloo Gobi|Potato and cauliflower curry", "Naan (Garlic)|Oven-baked flatbread with garlic", "Pani Puri|Crispy hollow balls with spicy water", "Idli Sambar|Steamed rice cakes with lentil soup", "Uttapam|Thick pancake with vegetables", "Rasam|Spicy tamarind soup", "Gulab Jamun|Deep fried milk solids in syrup", "Jalebi|Sweet crispy spiral dessert", "Lassi|Yogurt drink", "Thali|Platter with various dishes", "Korma|Mild creamy curry", "Vindaloo|Spicy Goan curry"
+    "Butter Chicken|Creamy tomato curry", "Chicken Tikka Masala|Spiced curry with roasted chicken", "Biryani (Chicken)|Spiced rice with chicken", "Biryani (Mutton)|Spiced rice with goat meat", "Palak Paneer|Spinach curry with cottage cheese", "Chole Bhature|Spicy chickpeas with fried bread", "Masala Dosa|Crepe with potato filling", "Samosa|Fried pastry with savory filling", "Vada Pav|Spicy potato fritter in a bun", "Pav Bhaji|Vegetable mash with buttered bread", "Tandoori Chicken|Roasted chicken with yogurt and spices", "Rogann Josh|Aromatic lamb curry", "Dal Makhani|Creamy black lentil stew", "Aloo Gobi|Potato and cauliflower curry", "Naan (Garlic)|Oven-baked flatbread with garlic", "Pani Puri|Crispy hollow balls with spicy water", "Idli Sambar|Steamed rice cakes with lentil soup", "Uttapam|Thick pancake with vegetables", "Rasam|Spicy tamarind soup", "Gulab Jamun|Deep fried milk solids in syrup", "Jalebi|Sweet crispy spiral dessert", "Lassi|Yogurt drink", "Thali|Platter with various dishes", "Korma|Mild creamy curry", "Vindaloo|Spicy Goan curry",
+    "Paneer Tikka|Grilled cottage cheese skewers", "Malai Kofta|Fried dumpling balls in creamy sauce", "Rajma Chawal|Red kidney bean curry with rice", "Bhindi Masala|Spiced okra stir-fry", "Kadai Paneer|Cottage cheese cooked in a wok with peppers", "Egg Curry|Boiled eggs in spicy tomato gravy", "Fish Curry|Fish cooked in coconut or tomato sauce", "Prawn Masala|Spicy prawn stir-fry", "Hyderabadi Biryani|Aromatic basmati rice with meat and spices", "Aloo Paratha|Flatbread stuffed with spiced potato", "Momos|Steamed dumplings with spicy chutney", "Bhel Puri|Puffed rice mixed with chutney and veggies", "Dahi Vada|Lentil balls soaked in yogurt", "Kulfi|Traditional Indian ice cream", "Rasgulla|Soft cheese balls in sugar syrup", "Dhokla|Steamed fermented batter cake", "Chicken 65|Spicy deep-fried chicken dish", "Mutton Korma|Tender mutton in rich creamy sauce", "Seekh Kebab|Minced meat grilled on skewers", "Baingan Bharta|Mashed roasted eggplant with spices"
   ],
-  // Filling roughly 30-40 generic/popular items for remaining countries to ensure variety without hitting token limits immediately
   th: [
-    "Pad Thai|Stir-fried noodles", "Tom Yum Goong|Spicy shrimp soup", "Green Curry|Coconut milk curry", "Som Tum|Spicy papaya salad", "Pad Kra Pao|Basil stir-fry with meat", "Khao Pad|Fried rice", "Massaman Curry|Rich peanut curry", "Panang Curry|Thick red curry", "Khao Soi|Curry noodle soup", "Mango Sticky Rice|Sweet dessert", "Tom Kha Gai|Chicken coconut soup", "Spring Rolls|Fried veggie rolls", "Satay|Grilled meat skewers", "Boat Noodles|Rich dark broth noodles", "Laab|Spicy minced meat salad", "Thai Omelette|Fluffy fried egg", "Fried Fish with Chili|Crispy fish with sauce", "Morning Glory Stir-fry|Vegetable side dish", "Thai Iced Tea|Sweet orange tea", "Roti|Sweet pancake"
+    "Pad Thai|Stir-fried noodles", "Tom Yum Goong|Spicy shrimp soup", "Green Curry|Coconut milk curry", "Som Tum|Spicy papaya salad", "Pad Kra Pao|Basil stir-fry with meat", "Khao Pad|Fried rice", "Massaman Curry|Rich peanut curry", "Panang Curry|Thick red curry", "Khao Soi|Curry noodle soup", "Mango Sticky Rice|Sweet dessert", "Tom Kha Gai|Chicken coconut soup", "Spring Rolls|Fried veggie rolls", "Satay|Grilled meat skewers", "Boat Noodles|Rich dark broth noodles", "Laab|Spicy minced meat salad", "Thai Omelette|Fluffy fried egg", "Fried Fish with Chili|Crispy fish with sauce", "Morning Glory Stir-fry|Vegetable side dish", "Thai Iced Tea|Sweet orange tea", "Roti|Sweet pancake",
+    "Pad See Ew|Stir-fried wide rice noodles with soy sauce", "Gai Yang|Grilled Thai chicken", "Nam Tok Moo|Grilled pork salad with herbs", "Tod Mun Pla|Thai fish cakes", "Yum Woon Sen|Spicy glass noodle salad", "Pla Pao|Salt-crusted grilled fish", "Khao Man Gai|Hainanese style chicken rice", "Khao Kha Moo|Braised pork leg on rice", "Hor Mok|Steamed curry custard in banana leaf", "Kanom Jeen|Rice noodles with curry sauce", "Gaeng Som|Sour orange curry", "Sai Oua|Northern Thai sausage", "Moo Ping|Grilled pork skewers", "Cha Yen|Thai iced tea with milk", "Lod Chong|Pandan noodles in coconut milk", "Sang Kaya Fug Tong|Pumpkin custard", "Khanom Krok|Coconut rice pancakes", "Kuay Teow Neua|Beef noodle soup", "Goong Ob Woonsen|Baked shrimp with glass noodles", "Poo Pad Pong Karee|Stir-fried crab with yellow curry"
   ],
   au: [
-    "Meat Pie|Pastry with meat filling", "Sausage Sizzle|Sausage on bread", "Chicken Parmigiana|Schnitzel with tomato and cheese", "Barramundi|Grilled local fish", "Pavlova|Meringue dessert with fruit", "Lamingtons|Sponge cake with chocolate and coconut", "Vegemite Toast|Salty spread on toast", "Burger with Beetroot|Aussie style burger", "Fish and Chips|Beachside classic", "Flat White|Coffee style", "Avocado Smash|Breakfast staple", "Tim Tam|Chocolate biscuit", "Anzac Biscuits|Oat cookies", "Kangaroo Steak|Lean game meat", "Lamb Roast|Sunday dinner favorite"
+    "Meat Pie|Pastry with meat filling", "Sausage Sizzle|Sausage on bread", "Chicken Parmigiana|Schnitzel with tomato and cheese", "Barramundi|Grilled local fish", "Pavlova|Meringue dessert with fruit", "Lamingtons|Sponge cake with chocolate and coconut", "Vegemite Toast|Salty spread on toast", "Burger with Beetroot|Aussie style burger", "Fish and Chips|Beachside classic", "Flat White|Coffee style", "Avocado Smash|Breakfast staple", "Tim Tam|Chocolate biscuit", "Anzac Biscuits|Oat cookies", "Kangaroo Steak|Lean game meat", "Lamb Roast|Sunday dinner favorite",
+    "Chiko Roll|Deep-fried savory roll", "Dim Sim|Deep-fried snack", "Fairy Bread|Bread with butter and sprinkles", "Moreton Bay Bugs|Local lobster-like seafood", "Damper|Soda bread baked in coals", "Witchetty Grub|Indigenous bush tucker (adventurous!)", "Vanilla Slice|Custard square pastry", "Cherry Ripe|Cherry and coconut chocolate bar", "Iced VoVo|Biscuit with coconut and jam", "Pie Floater|Meat pie in pea soup", "Salt and Pepper Calamari|Pub classic appetizer", "Potato Scallops|Battered deep-fried potato slices", "Steak Sandwich|Steak, cheese, onion, and beetroot", "Continental Roll|Italian-influenced sandwich", "Seafood Platter|Assorted fresh seafood", "Emu Burger|Lean native meat burger", "Crocodile Meat|Game meat often smoked or grilled", "Macadamia Nut Cake|Cake made with native nuts", "Lemon, Lime and Bitters|Popular pub drink mix"
   ],
   ph: [
-    "Adobo|Marinated meat stew", "Sinigang|Sour soup", "Lechon|Roast pig", "Sisig|Sizzling pork dish", "Pancit Canton|Stir-fried noodles", "Lumpia|Spring rolls", "Halo-Halo|Shaved ice dessert", "Kare-Kare|Peanut stew", "Chicken Inasal|Grilled chicken", "Tapsilog|Beef and egg rice", "Longganisa|Sweet sausage", "Balut|Fertilized duck egg", "Bicol Express|Spicy coconut pork", "Tinola|Chicken ginger soup", "Bibingka|Rice cake", "Champorado|Chocolate rice porridge"
+    "Adobo|Marinated meat stew", "Sinigang|Sour soup", "Lechon|Roast pig", "Sisig|Sizzling pork dish", "Pancit Canton|Stir-fried noodles", "Lumpia|Spring rolls", "Halo-Halo|Shaved ice dessert", "Kare-Kare|Peanut stew", "Chicken Inasal|Grilled chicken", "Tapsilog|Beef and egg rice", "Longganisa|Sweet sausage", "Balut|Fertilized duck egg", "Bicol Express|Spicy coconut pork", "Tinola|Chicken ginger soup", "Bibingka|Rice cake", "Champorado|Chocolate rice porridge",
+    "Lechon Kawali|Crispy deep-fried pork belly", "Pancit Malabon|Stir-fried noodles with seafood topping", "Arroz Caldo|Chicken rice porridge", "Bulalo|Beef shank soup", "Dinuguan|Pork blood stew", "Pinakbet|Vegetable stew with shrimp paste", "Laing|Taro leaves in coconut milk", "Tocino|Sweet cured pork", "Kalamay|Sticky sweet rice cake", "Puto|Steamed rice cake", "Taho|Silken tofu with syrup and pearls", "Turon|Banana lumpia with caramel", "Buko Pandan|Coconut and pandan dessert", "Sinangag|Garlic fried rice", "Bangus (Milkfish)|National fish, often fried or grilled", "Kaldereta|Meat stew with liver spread", "Mechado|Beef stew with tomato sauce", "Ginataang Manok|Chicken in coconut milk", "Bistek Tagalog|Beef steak in soy sauce and onions"
   ],
   br: [
-    "Feijoada|Black bean stew", "Churrasco|Brazilian BBQ", "Picanha|Top sirloin cap steak", "Moqueca|Fish stew", "Coxinha|Chicken croquette", "Pão de Queijo|Cheese bread", "Brigadeiro|Chocolate truffle", "Açaí|Berry bowl", "Pastel|Fried pastry", "Farofa|Toasted cassava flour side", "Vatapá|Shrimp and bread paste", "Acarajé|Black-eyed pea ball", "Guaraná|Popular soda", "Caipirinha|National cocktail"
+    "Feijoada|Black bean stew", "Churrasco|Brazilian BBQ", "Picanha|Top sirloin cap steak", "Moqueca|Fish stew", "Coxinha|Chicken croquette", "Pão de Queijo|Cheese bread", "Brigadeiro|Chocolate truffle", "Açaí|Berry bowl", "Pastel|Fried pastry", "Farofa|Toasted cassava flour side", "Vatapá|Shrimp and bread paste", "Acarajé|Black-eyed pea ball", "Guaraná|Popular soda", "Caipirinha|National cocktail",
+    "Bauru|Roast beef sandwich with cheese", "Baião de Dois|Rice and beans with cheese and meat", "Bobó de Camarão|Shrimp in manioc cream", "Carne de Sol|Sun-dried salted beef", "Tacacá|Shrimp soup with jambu", "Coxinhas de Galinha|Chicken drumstick croquettes", "Kibe|Deep-fried beef croquette", "Empada|Small savory pie", "Esfirra|Middle-eastern inspired meat pie", "Mousse de Maracujá|Passion fruit mousse", "Quindim|Coconut egg custard", "Pudim|Condensed milk flan", "Tapioca Crepe|Crepe made from cassava starch", "Queijo Coalho|Grilled squeaky cheese", "Arroz Carreteiro|Rice with dried beef", "Salpicão|Chicken salad with mayo and potato sticks", "Cuscuz Branco|Coconut and tapioca pudding", "Canjica|Sweet corn pudding", "Romeu e Julieta|Guava paste and cheese"
   ],
   tw: [
-    "Braised Pork Rice|Minced pork on rice", "Beef Noodle Soup|Rich beef broth noodles", "Bubble Tea|Tapioca milk tea", "Oyster Omelette|Egg with oysters", "Stinky Tofu|Fermented tofu", "Xiao Long Bao|Soup dumplings", "Pineapple Cake|Sweet pastry", "Fried Chicken Cutlet|Huge crispy chicken", "Scallion Pancake|Flaky savory pancake", "Dan Bing|Egg pancake roll", "Gua Bao|Pork belly bun", "Iron Egg|Stewed egg", "Three Cup Chicken|Basil chicken", "Mango Shaved Ice|Summer dessert", "Taro Ball Dessert|Chewy sweet balls"
+    "Braised Pork Rice|Minced pork on rice", "Beef Noodle Soup|Rich beef broth noodles", "Bubble Tea|Tapioca milk tea", "Oyster Omelette|Egg with oysters", "Stinky Tofu|Fermented tofu", "Xiao Long Bao|Soup dumplings", "Pineapple Cake|Sweet pastry", "Fried Chicken Cutlet|Huge crispy chicken", "Scallion Pancake|Flaky savory pancake", "Dan Bing|Egg pancake roll", "Gua Bao|Pork belly bun", "Iron Egg|Stewed egg", "Three Cup Chicken|Basil chicken", "Mango Shaved Ice|Summer dessert", "Taro Ball Dessert|Chewy sweet balls",
+    "Lu Rou Fan|Braised pork over rice", "Oyster Vermicelli|Thick noodle soup with oysters", "Coffin Bread|Deep-fried bread bowl with chowder", "Bawan|Meat dumpling in translucent wrapper", "Popcorn Chicken|Bite-sized fried chicken with basil", "Tube Rice Pudding|Sticky rice steamed in bamboo", "A-Gei|Meat-stuffed tofu skin", "Fish Ball Soup|Clear soup with bouncy fish balls", "Pepper Bun|Baked bun with pepper pork filling", "Peanut Ice Cream Roll|Ice cream wrapped in crepe with cilantro", "Douhua|Tofu pudding with toppings", "Soy Milk Chicken|Chicken marinated in fermented bean curd", "Turkey Rice|Shredded turkey over rice", "Milkfish Congee|Rice porridge with milkfish", "Sausage in Sausage|Taiwanese sausage wrapped in sticky rice sausage", "Sun Cake|Flaky pastry with maltose filling", "Hakka Stir-fry|Pork belly, squid, and dried tofu", "Bamboo Shoot Soup|Clear soup with seasonal bamboo shoots"
   ],
   ca: [
-    "Poutine|Fries, cheese curds, gravy", "Maple Syrup Pancakes|Breakfast classic", "Butter Tarts|Sweet pastry", "Nanaimo Bars|No-bake dessert bar", "Montreal Smoked Meat|Cured beef sandwich", "Tourtière|Meat pie", "Peameal Bacon|Cornmeal rolled bacon", "Caesar Cocktail|Clamato drink", "BeaverTails|Fried dough pastry", "Split Pea Soup|Hearty soup", "Lobster Roll|Maritime favorite", "Saskatoon Berry Pie|Fruit pie", "Donair|Spiced meat wrap"
+    "Poutine|Fries, cheese curds, gravy", "Maple Syrup Pancakes|Breakfast classic", "Butter Tarts|Sweet pastry", "Nanaimo Bars|No-bake dessert bar", "Montreal Smoked Meat|Cured beef sandwich", "Tourtière|Meat pie", "Peameal Bacon|Cornmeal rolled bacon", "Caesar Cocktail|Clamato drink", "BeaverTails|Fried dough pastry", "Split Pea Soup|Hearty soup", "Lobster Roll|Maritime favorite", "Saskatoon Berry Pie|Fruit pie", "Donair|Spiced meat wrap",
+    "Bannock|Indigenous fried bread", "Timbits|Donut holes from Tim Hortons", "Montreal Bagel|Sweeter, denser bagel", "Kraft Dinner|Macaroni and cheese (national staple)", "Game Meat (Bison/Venison)|Lean wild meat dishes", "Jiggs Dinner|Salt beef and vegetable boil", "Rappie Pie|Potato and meat casserole", "Blueberry Grunt|Steamed blueberry pudding", "Garlic Fingers|Dough with garlic butter and cheese", "Pierogi Pizza|Pizza topped with potato dumplings", "Ginger Beef|Sweet and spicy deep-fried beef (Calgary style)", "London Fog|Earl Grey tea latte", "Coffee Crisp|Coffee flavored wafer bar", "Smarties|Chocolate covered candy", "Ketchup Chips|Tangy potato chips", "All-Dressed Chips|Mix of all chip flavors", "Ice Wine|Sweet dessert wine"
   ],
   sg: [
-    "Chilli Crab|Spicy crab dish", "Hainanese Chicken Rice|Poached chicken rice", "Laksa|Spicy coconut noodles", "Char Kway Teow|Fried flat noodles", "Satay|Grilled skewers", "Bak Kut Teh|Pork rib tea soup", "Roti Prata|Flatbread with curry", "Hokkien Mee|Stir-fried prawn noodles", "Kaya Toast|Coconut jam toast", "Nasi Lemak|Coconut rice dish", "Fish Head Curry|Spicy curry", "Murtabak|Stuffed pancake", "Ice Kacang|Shaved ice dessert"
+    "Chilli Crab|Spicy crab dish", "Hainanese Chicken Rice|Poached chicken rice", "Laksa|Spicy coconut noodles", "Char Kway Teow|Fried flat noodles", "Satay|Grilled skewers", "Bak Kut Teh|Pork rib tea soup", "Roti Prata|Flatbread with curry", "Hokkien Mee|Stir-fried prawn noodles", "Kaya Toast|Coconut jam toast", "Nasi Lemak|Coconut rice dish", "Fish Head Curry|Spicy curry", "Murtabak|Stuffed pancake", "Ice Kacang|Shaved ice dessert",
+    "Carrot Cake (Chai Tow Kway)|Radish cake stir-fried with eggs", "Oyster Omelette|Egg omelette with oysters", "Wanton Mee|Egg noodles with dumplings", "Yong Tau Foo|Stuffed tofu and vegetables", "Rojak|Fruit and vegetable salad", "Mee Goreng|Spicy fried noodles", "Biryani|Spiced rice with meat", "Curry Puff|Pastry filled with curry potatoes", "Popiah|Fresh spring roll", "Cendol|Coconut milk dessert with green jelly", "Cheng Tng|Clear soup dessert", "Tau Huay|Soy bean pudding", "Mee Siam|Spicy rice vermicelli", "Mee Rebus|Noodles in sweet potato gravy", "Duck Rice|Braised duck over rice", "Kway Chap|Broad rice sheets in soy broth", "Chwee Kueh|Steamed rice cakes with radish", "Bak Chor Mee|Minced meat noodles", "Fishball Noodles|Noodles with bouncy fish balls"
   ],
   ae: [
-    "Shawarma|Meat wrap", "Hummus|Chickpea dip", "Falafel|Fried chickpea balls", "Manakish|Levantine pizza", "Machboos|Spiced rice with meat", "Shish Tawook|Chicken skewers", "Knafeh|Sweet cheese pastry", "Fattoush|Bread salad", "Tabouleh|Parsley salad", "Luqaimat|Sweet dumplings", "Camel Burger|Exotic burger", "Harees|Wheat and meat porridge", "Karak Chai|Spiced tea"
+    "Shawarma|Meat wrap", "Hummus|Chickpea dip", "Falafel|Fried chickpea balls", "Manakish|Levantine pizza", "Machboos|Spiced rice with meat", "Shish Tawook|Chicken skewers", "Knafeh|Sweet cheese pastry", "Fattoush|Bread salad", "Tabouleh|Parsley salad", "Luqaimat|Sweet dumplings", "Camel Burger|Exotic burger", "Harees|Wheat and meat porridge", "Karak Chai|Spiced tea",
+    "Mandi|Rice and meat dish cooked in a pit", "Kabsa|Mixed rice dish", "Thareed|Stew served over flatbread", "Madrouba|Beaten rice and fish porridge", "Balaleet|Sweet vermicelli with saffron omelette", "Saloga|Rice dessert", "Ghouzi|Roasted lamb on rice", "Samak Mashwi|Grilled fish", "Baba Ganoush|Smoked eggplant dip", "Kousa Mahshi|Stuffed zucchini", "Warak Enab|Stuffed grape leaves", "Foul Medames|Stewed fava beans", "Shakshouka|Eggs poached in tomato sauce", "Umm Ali|Bread pudding dessert", "Basbousa|Semolina cake", "Mahalabiya|Milk pudding", "Jallab|Date and molasses drink", "Laban|Salty yogurt drink"
   ],
   de: [
-    "Currywurst|Sausage with curry sauce", "Bratwurst|Fried sausage", "Schnitzel|Breaded cutlet", "Pretzel|Salty bread knot", "Sauerkraut|Fermented cabbage", "Potato Salad|Side dish", "Sauerbraten|Pot roast", "Spätzle|Egg noodles", "Rouladen|Rolled meat dish", "Black Forest Cake|Chocolate cherry cake", "Döner Kebab|Turkish-German sandwich", "Kartoffelpuffer|Potato pancakes", "Weisswurst|White sausage", "Apfelstrudel|Apple strudel"
+    "Currywurst|Sausage with curry sauce", "Bratwurst|Fried sausage", "Schnitzel|Breaded cutlet", "Pretzel|Salty bread knot", "Sauerkraut|Fermented cabbage", "Potato Salad|Side dish", "Sauerbraten|Pot roast", "Spätzle|Egg noodles", "Rouladen|Rolled meat dish", "Black Forest Cake|Chocolate cherry cake", "Döner Kebab|Turkish-German sandwich", "Kartoffelpuffer|Potato pancakes", "Weisswurst|White sausage", "Apfelstrudel|Apple strudel",
+    "Maultaschen|German ravioli", "Leberkäse|Meatloaf", "Königsberger Klopse|Meatballs in white sauce", "Eisbein|Pickled ham hock", "Schweinshaxe|Roasted pork knuckle", "Labskaus|Salted meat and potato dish", "Himmel und Erde|Mashed potatoes and apples", "Flammkuchen|Thin pizza-like tart", "Käsespätzle|Cheese noodles", "Obatzda|Cheese spread", "Stollen|Fruit bread", "Lebkuchen|Gingerbread", "Berliner|Filled doughnut", "Rote Grütze|Red fruit pudding", "Frankfurter Würstchen|Boiled sausage", "Thüringer Rostbratwurst|Grilled sausage", "Bienenstich|Bee sting cake", "Dampfnudel|Steamed dumpling", "Goulash|Meat stew", "Frikadellen|Pan-fried meatballs", "Matjes|Herring fillet"
   ]
 };
