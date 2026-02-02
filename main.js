@@ -350,6 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
       searchName = "spicy braised monkfish stew agujjim";
     } else if (name.includes('포케') || name.includes('Poke')) {
       searchName = "fresh hawaiian poke bowl delicious";
+    } else if (name.includes('나시고랭') || name.includes('Nasi Goreng')) {
+      searchName = "authentic delicious indonesian nasi goreng fried rice";
     } else if (name.includes('김밥') || name.includes('Gimbap')) {
       searchName = "premium gimbap";
     }

@@ -99,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       searchName = "spicy braised monkfish stew agujjim";
     } else if (name.includes('포케') || name.includes('Poke')) {
       searchName = "fresh hawaiian poke bowl delicious";
+    } else if (name.includes('나시고랭') || name.includes('Nasi Goreng')) {
+      searchName = "authentic delicious indonesian nasi goreng fried rice";
     }
     const encodedName = encodeURIComponent(searchName);
     return `https://tse2.mm.bing.net/th?q=${encodedName} food&w=400&h=400&c=7&rs=1&p=0`;
