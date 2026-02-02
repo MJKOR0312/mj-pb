@@ -344,6 +344,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchName = name;
     if (name.includes('로제 떡볶이') || name.includes('Rose Tteokbokki')) {
       searchName = "creamy delicious rose tteokbokki";
+    } else if (name.includes('마라탕') || name.includes('Malatang')) {
+      searchName = "spicy delicious malatang soup";
     } else if (name.includes('김밥') || name.includes('Gimbap')) {
       searchName = "premium gimbap";
     }

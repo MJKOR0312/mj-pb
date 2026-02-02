@@ -93,6 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchName = name;
     if (name.includes('로제 떡볶이') || name.includes('Rose Tteokbokki')) {
       searchName = "creamy delicious rose tteokbokki";
+    } else if (name.includes('마라탕') || name.includes('Malatang')) {
+      searchName = "spicy delicious malatang soup";
     }
     const encodedName = encodeURIComponent(searchName);
     return `https://tse2.mm.bing.net/th?q=${encodedName} food&w=400&h=400&c=7&rs=1&p=0`;
